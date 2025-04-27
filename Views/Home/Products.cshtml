@@ -1,0 +1,401 @@
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@using SmartifyWebsite.Data
+@inject IViewLocalizer Localizer
+@{
+	var totalProducts = Convert.ToInt32(ViewData["TotalProducts"]);
+	var totalDisplayed = Convert.ToInt32(ViewData["totalDisplayed"]);
+}
+@section Title {
+	<title>@Localizer["SmartifyYourBusiness"]</title>
+}
+@section Description {
+	<meta name="description" content="@Localizer["SmartifyDescription"]">
+}
+
+@section Keywords {
+	<meta name="keywords" content="@Localizer["IndexKeywords"]">
+}
+@section CSS {
+	<style>
+
+		.active-a-tag {
+			background-color: #ff497c !important;
+			color: #fff !important;
+		}
+		.price_slider_amount {
+			display: flex;
+			gap: 10px; /* Adds space between the two inputs */
+			align-items: center; /* Vertically aligns the inputs */
+		}
+
+		.slider_price_min, .slider_price_max {
+			width: 45%; /* Adjust the width as needed */
+			padding: 5px;
+			font-size: 14px;
+		}
+
+		.button.price-filter {
+			padding: 5px 15px; /* Adjust the padding for smaller size */
+			font-size: 16px; /* Adjust the font size for a smaller appearance */
+			width: auto; /* Ensures the width adjusts to the content */
+			height: auto; /* Ensures the height is based on the content */
+			line-height: 1.2; /* Adjust line-height for better alignment */
+		}
+	</style>
+}
+	<!--BreadCrumb-->
+	<section class="page_title ls s-py-50 corner-title ls invise overflow-visible">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12 text-center">
+				<h1>@Localizer["Products"]</h1>
+					<ol class="breadcrumb">
+						<li class="breadcrumb-item">
+							<a asp-controller="Home" asp-action="Index">@Localizer["MainPage"]</a>
+						</li>
+						<li class="breadcrumb-item">
+							<a asp-controller="Home" asp-action="Products">@Localizer["Products"]</a>
+						</li>
+					</ol>
+					<div class="divider-15 d-none d-xl-block"></div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!--Filters-->
+	<section class="ls s-pt-50 s-pb-130 container-px-0 gallery-excerpt">
+		<div class="container">
+			<div class="row">
+				<div class="d-none d-lg-block divider-30"></div>
+
+				<div class="col-lg-12 ">
+					<div class="row justify-content-center">
+						<div class="col-md-11 col-xl-9">
+							<div class="filters gallery-filters small-text text-lg-right">
+								<a class="product-filter-button active-a-tag" data-id="0" style="cursor:pointer;">@Localizer["All"]</a>
+								<a class="product-filter-button" data-id="1" style="cursor:pointer;">@Localizer["Web Applications"]</a>
+								<a class="product-filter-button" data-id="2" style="cursor:pointer;">@Localizer["Desktop Applications"]</a>
+								<a class="product-filter-button" data-id="3" style="cursor:pointer;">@Localizer["Mobile Applications"]</a>
+								<a class="product-filter-button" data-id="4" style="cursor:pointer;">@Localizer["Web Design"]</a>
+								<a class="product-filter-button" data-id="5" style="cursor:pointer;">@Localizer["ECommerce"]</a>
+								<a class="product-filter-button" data-id="6" style="cursor:pointer;">@Localizer["BI and Reporting"]</a>
+							</div>
+						</div>
+					</div>
+
+					<div class="row justify-content-center align-items-start ds texture-ds">
+						<!-- Search Section -->
+						<div class="col-sm-12 col-md-4 widget widget_search">
+							<h6>@Localizer["Search"]</h6>
+								<label for="search-form-widget">
+									<span class="screen-reader-text">Search for:</span>
+								</label>
+								<input type="search" id="search-form-widget" class="search-field" style="margin-top:10px;" placeholder="@Localizer["Search Product"]" value="" name="Search Keyword">
+						</div>
+
+						<!-- Price Filter Section -->
+						<div class="col-sm-12 col-md-8 d-flex flex-wrap">
+
+							<div class="widget woocommerce widget_price_filter">
+								<h6 class="widget-title">Price Filter</h6>
+									<div class="price_slider_wrapper" style="margin-top:10px;">
+										<div class="slider-range-price"></div>
+										<div class="price_slider_amount">
+											<input type="text" class="slider_price_min" id="minValue" name="min_price" placeholder="Min price">
+											<input type="text" class="slider_price_max" id="maxValue" name="max_price" placeholder="Max price">
+										</div>
+									</div>
+							</div>
+						</div>
+
+						<!-- Filter Button -->
+						<div class="filter-button-container text-center align-self-center d-flex flex-wrap" style="margin-top:30px;" >
+							<button type="submit" id="filter-button" class="button price-filter">@Localizer["Filter"]</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+	<section class="ls s-pt-30 s-pb-30 s-pb-lg-75 c-gutter-30 c-mb-30 service-item product-content">
+		<div class="d-none d-lg-block divider-65"></div>
+			<div class="container">
+				<div class="row" id="content">
+				</div>
+				<div class="d-none d-lg-block divider-75"></div>
+			</div>
+
+			@if (totalProducts > totalDisplayed)
+			{
+				<div class="row" id="load-more-content">
+					<div class="col-sm-12 text-center gallery-btn">
+						<button class="btn btn-maincolor button price-filter load-more">@Localizer["Load More"]</button>
+					</div>
+				</div>
+			}
+	</section>
+
+
+<div id="content1">
+</div>
+
+<input type="hidden" value="1" id="currentState" />
+<input type="hidden" value="@totalProducts" id="totalProducts" />
+<input type="hidden" value="@totalDisplayed" id="totalDisplayed" />
+@section Scripts {
+	<script>
+		$(document).ready(function () {
+			var pageNumber = 1;
+			var categoryID = 0;
+			var searchString = '';
+			var minValue = 0;
+			var maxValue = 99999;
+			$(document).on("click", ".product-filter-button", function () {
+				categoryID = $(this).data("id");
+				const clickedButton = $(this);
+				$("#content").html("");
+				$("#search-form-widget").val("");
+				$("#minValue").val("");
+				$("#maxValue").val("");
+				pageNumber = 1;
+				$.ajax({
+					type: "POST",
+					url: "/Home/ProductsDisplaySection",
+					data: {
+						categoryId: categoryID,
+						totalItemDisplayPerPage: 9,
+						pageNumber: pageNumber,
+						searchString: '',
+						minValue: 0,
+						maxValue: 99999,
+					},
+					cache: false,
+					success: function (data) {
+
+						initializeOwlCarousel();
+						$("#content").html(data);
+
+						initializeOwlCarousel();
+						$(".product-filter-button").removeClass("active-a-tag");
+						clickedButton.addClass("active-a-tag");
+
+						if ($("#TotalProductsFiltered").val() >= $("#TotalResult").val()) {
+							$("#load-more-content").css("display", "none");
+						} else {
+							$("#load-more-content").css("display", "block");
+						}
+					},
+					error: function () {
+						initializeOwlCarousel();
+
+					}
+				});
+			});
+			$(document).on("click", "#filter-button", function () {
+				
+				$("#content").html("");
+				searchString = $("#search-form-widget").val();
+				let minValue = 0;
+				let maxValue = 0;
+				if (!isNaN(parseFloat($("#minValue").val()))) {
+					minValue = parseFloat($("#minValue").val());
+				}
+				if (!isNaN(parseFloat($("#maxValue").val()))) {
+					maxValue = parseFloat($("#maxValue").val());
+				}
+				pageNumber = 1;
+				$.ajax({
+					type: "POST",
+					url: "/Home/ProductsDisplaySection",
+					data: {
+						categoryId: categoryID,
+						totalItemDisplayPerPage: 9,
+						pageNumber: pageNumber,
+						searchString: searchString,
+						minValue: minValue,
+						maxValue: maxValue,
+					},
+					cache: false,
+					success: function (data) {
+
+						initializeOwlCarousel();
+						$("#content").html(data);
+
+						if ($("#TotalProductsFiltered").val() >= $("#TotalResult").val()) {
+							$("#load-more-content").css("display", "none");
+						} else {
+							$("#load-more-content").css("display", "block");
+						}
+					},
+					error: function () {
+						initializeOwlCarousel();
+
+					}
+				});
+			});
+			function debounce(func, wait) {
+				let timeout;
+				return function () {
+					const context = this, args = arguments;
+					clearTimeout(timeout);
+					timeout = setTimeout(() => func.apply(context, args), wait);
+				};
+			}
+			$(window).scroll(debounce(function () {
+				var currentHeight = $(window).scrollTop();
+				var currentState = parseInt($('#currentState').val());
+
+
+				if (currentHeight >= 0 && currentState === 1) {
+					currentState = 2;
+					$('#currentState').val(currentState);
+					$.ajax({
+						type: "POST",
+						url: "/Home/ProductsDisplaySection",
+						data: {
+							categoryId: 0,
+							totalItemDisplayPerPage: 9,
+							pageNumber:1,
+							searchString: '',
+							minValue: 0,
+							maxValue: 9999,
+						}, 
+						async: true,
+						processData: true,
+						cache: true,
+						success: function (result) {
+							$("#content").append(result);
+						}
+					});
+
+				}
+				else if (currentHeight >= 500 && currentState === 2) {
+					currentState = 4;
+					$('#currentState').val(currentState);
+					$.ajax({
+						type: "GET",
+						url: "/Home/ContactUsForm",
+						async: true,
+						processData: true,
+						cache: true,
+						success: function (result) {
+							$("#content1").append(result);
+							
+						}
+					});
+
+				}
+			}, 200));
+			$(document).on("click", ".toggle-read", function () {
+
+				const container = this.parentElement;
+				const briefContent = container.querySelector('.brief-content');
+				const fullContent = container.querySelector('.full-content');
+
+				// Toggle visibility
+				if (fullContent.style.display === "none") {
+					briefContent.style.display = "none";
+					fullContent.style.display = "block";
+					this.textContent = "@Localizer["Show Less"]";
+				} else {
+					briefContent.style.display = "block";
+					fullContent.style.display = "none";
+					this.textContent = "@Localizer["Show More"]";
+				}
+			});
+			$(document).on("click", ".load-more", function () {
+
+				pageNumber = pageNumber + 1;
+
+				let minValue = 0;
+				let maxValue = 0;
+				if (!isNaN(parseFloat($("#minValue").val()))) {
+					minValue = parseFloat($("#minValue").val());
+				}
+				if (!isNaN(parseFloat($("#maxValue").val()))) {
+					maxValue = parseFloat($("#maxValue").val());
+				}
+				$.ajax({
+					type: "POST",
+					url: "/Home/ProductsDisplaySection",
+					data: {
+						categoryId: categoryID,
+						totalItemDisplayPerPage: 9,
+						pageNumber: pageNumber,
+						searchString: searchString,
+						minValue: minValue,
+						maxValue: maxValue,
+					},
+					async: true,
+					processData: true,
+					cache: true,
+					success: function (result) {
+						$("#content").append(result);
+						$(this).css('display', 'none');
+
+						if (pageNumber * 9 >= parseInt($("#TotalProductsFiltered").val(), 10)) {
+							$(".load-more").css('display', 'none');
+						}
+					},
+					 error: function (xhr, status, error) {
+						console.error("Error loading content:", error);
+					}
+				});
+
+			});
+			function initializeOwlCarousel() {
+				$('.owl-carousel').each(function () {
+					var $carousel = $(this);
+
+					// Check if already initialized
+					if ($carousel.hasClass('owl-loaded')) {
+						return; // Skip reinitialization
+					}
+
+					var data = $carousel.data();
+
+					var loop = data.loop || false,
+						margin = (data.margin || data.margin === 0) ? data.margin : 30,
+						nav = data.nav || false,
+						navPrev = data.navPrev || '<i class="fa fa-angle-left"></i>',
+						navNext = data.navNext || '<i class="fa fa-angle-right"></i>',
+						dots = data.dots || false,
+						themeClass = data.themeclass || 'owl-theme',
+						center = data.center || false,
+						items = data.items || 4,
+						autoplay = data.autoplay || false,
+						responsiveXs = data.responsiveXs || 1,
+						responsiveSm = data.responsiveSm || 2,
+						responsiveMd = data.responsiveMd || 3,
+						responsiveLg = data.responsiveLg || 4,
+						draggable = (data.draggable === false) ? false : true;
+
+					$carousel.owlCarousel({
+						loop: loop,
+						margin: margin,
+						nav: nav,
+						autoplay: autoplay,
+						dots: dots,
+						center: center,
+						navText: [navPrev, navNext],
+						mouseDrag: draggable,
+						touchDrag: draggable,
+						items: items,
+						responsive: {
+							0: { items: responsiveXs },
+							767: { items: responsiveSm },
+							992: { items: responsiveMd },
+							1200: { items: responsiveLg }
+						},
+					}).addClass(themeClass);
+
+					// Mark carousel as initialized
+					$carousel.addClass('owl-loaded');
+
+				});
+			}
+		});
+	</script>
+}

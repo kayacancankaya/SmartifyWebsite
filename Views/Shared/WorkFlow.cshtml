@@ -1,0 +1,75 @@
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer;
+
+<section class="s-pt-100 s-pt-lg-130 ds process-part skew_right s-parallax top_white_line_big overflow-visible" id="steps">
+	<div class="container">
+		<div class="divider-65"></div>
+		<div class="row align-items-center c-mb-20 c-mb-lg-60">
+			<div class="col-12 col-lg-4">
+				<div class="step-left-part text-right">
+					<h2 class="step-title">
+						<span class="color-main">01</span>@Localizer["Analysis"]
+					</h2>
+				</div>
+			</div>
+			<div class="col-12 col-lg-4">
+				<div class="step-center-part text-center">
+					<img src="~/images/step_img_1.jpg" alt="step">
+				</div>
+			</div>
+			<div class="col-12 col-lg-4">
+				<div class="step-right-part">
+					<p class="step-text">@Localizer["Analysis P"]</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="row align-items-center c-mb-20 c-mb-lg-60 ">
+			<div class="col-12 col-lg-4 order-lg-3">
+				<div class="step-right-part text-right">
+					<h2 class="step-title">
+						<span class="color-main2">02</span>@Localizer["Develop"]
+					</h2>
+				</div>
+			</div>
+			<div class="col-12 col-lg-4 order-lg-2">
+				<div class="step-center-part text-center">
+					<img src="~/images/step_img_3.jpg" alt="step">
+				</div>
+			</div>
+			<div class="col-12 col-lg-4 text-right order-lg-1">
+				<div class="step-right-part">
+					<p class="step-text">@Localizer["Develop P"]</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="row align-items-center right c-mb-20 c-mb-lg-60 ">
+			<div class="col-12 col-lg-4">
+				<div class="step-left-part ">
+					<h2 class="step-title">
+						<span class="color-main3">03</span>@Localizer["Support"]
+					</h2>
+				</div>
+			</div>
+			<div class="col-12 col-lg-4 ">
+				<div class="step-center-part text-center last">
+					<img src="~/images/step_img_2.jpg" alt="step">
+				</div>
+			</div>
+			<div class="col-12 col-lg-4  ">
+				<div class="step-left-part ">
+					<p class="step-text">@Localizer["Support P"]</p>
+				</div>
+			</div>
+		</div>
+		<div class="divider-10 d-block d-sm-none"></div>
+		<div class="img-wrap text-center">
+			<img src="img/vertical_line2.png" alt="Vertical Line">
+		</div>
+		<div class=" white-button text-center">
+			<a class="btn white-btn" asp-controller="Home" asp-action="Projects">@Localizer["Products"]</a>
+		</div>
+		<div class="divider-30 d-none d-xl-block"></div>
+	</div>
+</section>

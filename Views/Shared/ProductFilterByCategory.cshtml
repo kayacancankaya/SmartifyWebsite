@@ -1,0 +1,85 @@
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@using SmartifyWebsite.Data
+@model IEnumerable<Product>
+@inject IViewLocalizer Localizer;
+@{
+	var currentculture = ViewData["CurrentCulture"].ToString();
+	string photoPathBase = string.Format("~/images/gallery/{0}/",currentculture);
+	string photoPath = string.Empty;
+}
+	
+<!--Finished Products-->
+<section id="product-filter-content" class="s-pt-75 s-pt-xl-50 gallery-carousel main-gallery container-px-0" id="gallery">
+	<div class="container-fluid">
+		<div class="img-wrap text-center">
+			<img src="img/vertical_line.png" alt="vertical line">
+			<div class="divider-40 d-block d-sm-none"></div>
+		</div>
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="row justify-content-center">
+					<div class="col-md-10 col-xl-5">
+						<div class="filters gallery-filters small-text text-lg-right">
+							<a class="product-filter-button" data-id="0" style="cursor:pointer;">@Localizer["All"]</a>
+							<a class="product-filter-button" data-id="1" style="cursor:pointer;">@Localizer["Web Applications"]</a>
+							<a class="product-filter-button" data-id="2" style="cursor:pointer;">@Localizer["Desktop Applications"]</a>
+							<a class="product-filter-button" data-id="3" style="cursor:pointer;">@Localizer["Mobile Applications"]</a>
+							<a class="product-filter-button" data-id="4" style="cursor:pointer;">@Localizer["Web Design"]</a>
+							<a class="product-filter-button" data-id="5" style="cursor:pointer;">@Localizer["ECommerce"]</a>
+							<a class="product-filter-button" data-id="6" style="cursor:pointer;">@Localizer["BI and Reporting"]</a>
+						</div>
+					</div>
+				</div>
+
+				
+					<div class="owl-carousel owl-product gallery-owl-nav"  data-autoplay="false" data-responsive-lg="5" data-responsive-md="3" data-responsive-sm="3" data-responsive-xs="2" data-nav="true" data-dots="false" data-filters=".gallery-filters" data-margin="0" data-loop="true">
+					@foreach(var item in Model)
+					{
+						var categoryName = string.Empty;
+						var productName = string.Empty;
+						photoPath = string.Format("{0}{1}/1.png", photoPathBase, item.ProductCode.Substring(0, 6));
+						switch (currentculture)
+						{
+							case "en-US":
+								categoryName = item.Category.CategoryName_EN;
+								productName = item.Name_EN;
+								
+								break;
+							case "tr-TR":
+								categoryName = item.Category.CategoryName_TR;
+								productName = item.Name_TR;
+								break;
+							case "es-ES":
+								categoryName = item.Category.CategoryName_ES;
+								productName = item.Name_ES;
+								break;
+							default:
+								categoryName = item.Category.CategoryName_EN;
+								productName = item.Name_EN;
+								break;
+						}
+
+						<div class="vertical-item item-gallery content-absolute text-center ds web-application">
+							<div class="item-media">
+								<img src="@Url.Content(photoPath)" alt="product photo">
+								<div class="media-links">
+								</div>
+							</div>
+							<div class="item-content">
+								<h6>
+									<a class="small-text btn-outline-maincolor" asp-controller="Home" asp-action="Category" asp-route-categoryId="@item.CategoryID" target="_blank">@categoryName</a>
+								</h6>
+								<h6>
+									<a asp-controller="Home" asp-action="Product" asp-route-productCode="@item.ProductCode" target="_blank" >@productName</a>
+								</h6>
+							</div>
+						</div>
+					}
+					
+				</div>
+				<!-- .owl-carousel-->
+				
+			</div>
+		</div>
+	</div>
+</section>

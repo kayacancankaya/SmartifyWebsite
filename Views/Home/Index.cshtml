@@ -1,0 +1,467 @@
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+@section Title {
+	<title>@Localizer["SmartifyYourBusiness"]</title>
+}
+@section Description{
+	<meta name="description" content="@Localizer["SmartifyDescription"]">
+}
+@section Keywords{
+	<meta name="keywords" content="@Localizer["IndexKeywords"]">
+}
+@section SearchModal{
+	<div class="modal" tabindex="-1" role="dialog" aria-labelledby="search_modal" id="search_modal">
+		<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			<span aria-hidden="true">&times;</span>
+		</button>
+		<div class="widget widget_search">
+			<form method="get" class="searchform search-form" action="/">
+				<div class="form-group">
+					<input type="text" value="" name="search" class="form-control" placeholder="Search keyword" id="modal-search-input">
+				</div>
+				<button type="submit" class="btn">@Localizer["Search"]</button>
+			</form>
+		</div>
+	</div>
+}
+@section Popup{
+	<div class="modal fade" tabindex="-1" role="dialog" id="messages_modal">
+		<div class="fw-messages-wrap ls p-normal">
+			<!-- Uncomment this UL with LI to show messages in modal popup to your user: -->
+			
+			@* <ul class="list-unstyled">
+				<li>Message To User</li>
+			</ul> *@
+			
+
+		</div>
+	</div>
+}
+	<div id="content">
+			<!-- slider -->
+			 <section class="page_slider main_slider">
+				<div class="flexslider" data-nav="true" data-dots="false">
+				 	<ul class="slides">
+						<!--intro slide 1-->
+						<li class="ds text-center slide1">
+							<span class="flexslider-overlay"></span>
+							<span class="embed-responsive embed-responsive-16by9">
+								<iframe src="https://www.youtube.com/embed/UBufeh1yv2c?feature=oembed&;showinfo=0&;autoplay=1&;controls=0&;mute=1&;loop=1&;playlist=UBufeh1yv2c" allowfullscreen=""></iframe>
+							</span>
+							<div class="container">
+								<div class="row">
+									<div class="col-12 itro_slider">
+										<div class="intro_layers_wrapper">
+											<div class="intro_layers">
+												<div class="intro_layer" data-animation="fadeIn">
+													<p class="text-uppercase intro_after_featured_word">@Localizer["WelcomeTo"]</p>
+												</div>
+
+												<div class="intro_layer" data-animation="slideRight">
+													<h2 class="text-uppercase intro_featured_word">
+														SMARTIFY
+													</h2>
+												</div>
+												<div class="intro_layer" data-animation="fadeIn">
+													<h3 class="intro_before_featured_word">
+														<span class="color-main2">@Localizer["AppDev"]</span>,
+														<span class="color-main3">@Localizer["Web Design"]</span> &
+											<span class="color-main4">@Localizer["BI and Reporting"]</span>
+													</h3>
+												</div>
+												<div class="intro_layer page-bottom" data-animation="expandUp">
+													<a class="btn btn-outline-maincolor" asp-controller="Home" asp-action="Services">@Localizer["Get Started"]</a>
+												</div>
+											</div>
+											<!-- eof .intro_layers -->
+										</div>
+										<!-- eof .intro_layers_wrapper -->
+									</div>
+									<!-- eof .col-* -->
+								</div>
+								<!-- eof .row -->
+							</div>
+							<!-- eof .container -->
+						</li>
+						<!--intro slide 2-->
+						<li class="ds text-center slide2">
+							<span class="flexslider-overlay"></span>
+							<img src="images/slide_02.jpg" alt="">
+							<div class="container">
+								<div class="row">
+									<div class="col-12 itro_slider">
+										<div class="intro_layers_wrapper">
+											<div class="intro_layers">
+												<div class="intro_layer" data-animation="fadeIn">
+													<h3 class="text-lowercase intro_before_featured_word">
+														@Localizer["Cloud and Offline"]
+													</h3>
+												</div>
+												<div class="intro_layer" data-animation="fadeIn">
+													<h2 class="text-uppercase intro_featured_word">
+														@Localizer["Business"]
+													</h2>
+												</div>
+												<div class="intro_layer" data-animation="pullDown">
+													<p class="text-uppercase intro_after_featured_word">@Localizer["Solutions"]</p>
+												</div>
+												<div class="intro_layer page-bottom" data-animation="expandUp">
+													<a class="btn btn-outline-maincolor" asp-controller="Home" asp-action="WebApplicationDevelopment">@Localizer["Get Started"]</a>
+													<a class="btn btn-outline-maincolor" asp-controller="Home" asp-action="Products">@Localizer["Our Folio"]</a>
+												</div>
+											</div>
+											<!-- eof .intro_layers -->
+										</div>
+										<!-- eof .intro_layers_wrapper -->
+									</div>
+									<!-- eof .col-* -->
+								</div>
+								<!-- eof .row -->
+							</div>
+							<!-- eof .container -->
+						</li>
+						<!--intro slide 3-->
+						<li class="ds text-center slide3">
+							<img src="images/slide_03.jpg" alt="">
+							<div class="container">
+								<div class="row">
+									<div class="col-12 itro_slider">
+										<div class="intro_layers_wrapper">
+											<div class="intro_layers">
+												<div class="intro_layer" data-animation="fadeInRight">
+													<h2 class="text-uppercase intro_featured_word light">
+														@Localizer["Modern"]
+													</h2>
+												</div>
+												<div class="intro_layer" data-animation="fadeIn">
+													<h2 class="text-uppercase intro_featured_word bold">
+														@Localizer["Design & Marketing"]
+													</h2>
+												</div>
+												<div class="intro_layer" data-animation="fadeIn">
+													<h2 class="text-uppercase intro_featured_word">
+													@Localizer["For Your Need"]
+													</h2>
+												</div>
+
+												<div class="intro_layer page-bottom" data-animation="expandUp">
+													<a class="btn btn-outline-maincolor" asp-controller="Home" asp-action="WebDesign">@Localizer["Get Started"]</a>
+													<a class="btn btn-outline-maincolor" asp-controller="Home" asp-action="Products">@Localizer["Our Folio"]</a>
+												</div>
+											</div>
+											<!-- eof .intro_layers -->
+										</div>
+										<!-- eof .intro_layers_wrapper -->
+									</div>
+									<!-- eof .col-* -->
+								</div>
+								<!-- eof .row -->
+							</div>
+							<!-- eof .container -->
+						</li>
+
+					</ul> 
+				</div>
+				<!-- eof flexslider -->
+				 <div class="flexslider-bottom d-none d-xl-block">
+					<a href="#about" class="mouse-button animated floating"></a>
+				</div> 
+			</section>
+			<div class="divider-10 d-block d-sm-none"></div> 
+			@Html.Partial("AboutSmartifyPartial")
+			<!--AboutSmartifyPartial-->
+			<!--ServicesPartial-->
+			<!--WorkFlow-->
+			<!--ProductFilterByCategory-->
+			<!--Team-->
+			<!--YourProject-->
+			<!--ContactUsCallUs-->
+	</div>
+<input type="hidden" value="1" id="currentState" />
+		
+@section Scripts {
+	 <script>
+		$(document).ready(function () {
+
+			var pageNumber = 1;
+			$(document).on("click", ".product-filter-button", function () {
+				var id = $(this).data("id");
+				$("#product-filter-content").html("");
+				$.ajax({
+					type: "POST",
+					url: "/Home/ProductFilterByCategory", 
+					data: {
+						id: id,
+						pageNumber: pageNumber,
+						totalItemDisplayPerPage: 10,
+					},
+					cache: false,
+					success: function (data) {
+
+						initializeOwlCarousel();
+						$("#product-filter-content").html(data);
+
+						initializeOwlCarousel();
+					},
+					error: function () {
+						initializeOwlCarousel();
+
+					}
+				});
+			});
+
+					 function debounce(func, wait) {
+				  let timeout;
+					 return function () {
+							const context = this, args = arguments;
+						clearTimeout(timeout);
+							timeout = setTimeout(() => func.apply(context, args), wait);
+						};
+					   }
+
+
+					$(window).scroll(debounce(function () {
+					var currentHeight = $(window).scrollTop();
+						var currentState = parseInt($('#currentState').val());
+
+					
+						   if (currentHeight >= 0 && currentState === 1) {
+							   currentState = 2;
+							   $('#currentState').val(currentState);
+								   $.ajax({
+									   type: "GET",
+									   url: "/Home/ServicesPartial",
+									   async: true,
+									   processData: true,
+									   cache: true,
+									   success: function (result) {
+											  $("#content").append(result);
+
+										  }
+								   });
+
+							}
+						else if (currentHeight >= 500 && currentState === 2) {
+						currentState = 3;
+					$('#currentState').val(currentState);
+							 $.ajax({
+							  type: "GET",
+								url: "/Home/WorkFlow",
+							  async: true,
+								processData: true,
+								cache: true,
+								success: function (result) {
+								$("#content").append(result);
+								}
+							});
+
+					}
+					else if (currentHeight >= 1000 && currentState === 3) {
+						currentState=4;
+						$('#currentState').val(currentState);
+							
+								$.ajax({
+							type: "POST",
+							url: "/Home/ProductFilterByCategory", 
+							data: {
+								id: 0,
+								totalItemDisplayPerPage: 10,
+								pageNumber:1,
+							},
+							cache: false,
+							success: function (data) {
+								$("#content").append(data);
+								initializeOwlCarousel();
+							},
+							error: function () {
+								initializeOwlCarousel();
+							}
+						});
+					}
+					else if(currentHeight >= 1500 && currentState === 4) {
+						currentState = 5;
+						$('#currentState').val(currentState);
+							$.ajax({
+								type: "GET",
+								url: "/Home/Team",
+								async: true,
+								processData: true,
+								cache: true,
+								success: function (result) {
+								$("#content").append(result);
+
+								initializeSlider();
+								}
+							});
+					
+
+					}
+					else if (currentHeight >= 2000 && currentState === 5) {
+						currentState = 6;
+						$('#currentState').val(currentState);
+							$.ajax({
+								type: "GET",
+								url: "/Home/YourProject",
+								async: true,
+								processData: true,
+								cache: true,
+								success: function (result) {
+									$("#content").append(result);
+								}
+							});
+
+					}
+					else if (currentHeight >= 3000 && currentState === 6) {
+						currentState = 7;
+						$('#currentState').val(currentState);
+							$.ajax({
+								type: "GET",
+								url: "/Home/ContactUsCallUs",
+								async: true,
+								processData: true,
+								cache: true,
+								success: function (result) {
+									$("#content").append(result);
+								}
+							});
+
+					}
+				},200));
+
+		});
+
+		function initializeOwlCarousel() {
+			$('.owl-carousel').each(function () {
+				var $carousel = $(this);
+
+				// Check if already initialized
+				if ($carousel.hasClass('owl-loaded')) {
+					return; // Skip reinitialization
+				}
+
+				var data = $carousel.data();
+
+				var loop = data.loop || false,
+					margin = (data.margin || data.margin === 0) ? data.margin : 30,
+					nav = data.nav || false,
+					navPrev = data.navPrev || '<i class="fa fa-angle-left"></i>',
+					navNext = data.navNext || '<i class="fa fa-angle-right"></i>',
+					dots = data.dots || false,
+					themeClass = data.themeclass || 'owl-theme',
+					center = data.center || false,
+					items = data.items || 4,
+					autoplay = data.autoplay || false,
+					responsiveXs = data.responsiveXs || 1,
+					responsiveSm = data.responsiveSm || 2,
+					responsiveMd = data.responsiveMd || 3,
+					responsiveLg = data.responsiveLg || 4,
+					draggable = (data.draggable === false) ? false : true;
+
+				$carousel.owlCarousel({
+					loop: loop,
+					margin: margin,
+					nav: nav,
+					autoplay: autoplay,
+					dots: dots,
+					center: center,
+					navText: [navPrev, navNext],
+					mouseDrag: draggable,
+					touchDrag: draggable,
+					items: items,
+					responsive: {
+						0: { items: responsiveXs },
+						767: { items: responsiveSm },
+						992: { items: responsiveMd },
+						1200: { items: responsiveLg }
+					},
+				}).addClass(themeClass);
+
+				// Mark carousel as initialized
+				$carousel.addClass('owl-loaded');
+
+			});
+		}
+		function initializeSlider() {
+			if ($().flexslider) {
+				//Team Slider Shortcode
+				jQuery('.flexslider.team-slider').flexslider({
+					slideshow: false,
+					directionNav: false,
+					manualControls: ".flex-control-nav-1 li",
+				});
+
+				var $introSlider = $(".page_slider .flexslider");
+				$introSlider.each(function (index) {
+					var $currentSlider = $(this);
+					var data = $currentSlider.data();
+					var nav = (data.nav !== 'undefined') ? data.nav : true;
+					var dots = (data.dots !== 'undefined') ? data.dots : true;
+					var speed = (data.speed !== 'undefined') ? data.speed : 7000;
+
+					$currentSlider.flexslider({
+						animation: "fade",
+						pauseOnHover: true,
+						useCSS: true,
+						controlNav: dots,
+						directionNav: nav,
+						prevText: "",
+						nextText: "",
+						smoothHeight: false,
+						slideshowSpeed: speed,
+						animationSpeed: 600,
+						start: function (slider) {
+							slider.find('.intro_layers').children().css({ 'visibility': 'hidden' });
+							slider.find('.flex-active-slide .intro_layers').children().each(function (index) {
+								var self = $(this);
+								var animationClass = !self.data('animation') ? 'fadeInDown' : self.data('animation');
+								setTimeout(function () {
+									self.addClass("animated " + animationClass);
+								}, index * 500);
+							});
+						},
+						after: function (slider) {
+							slider.find('.flex-active-slide .intro_layers').children().each(function (index) {
+								var self = $(this);
+								var animationClass = !self.data('animation') ? 'fadeInDown' : self.data('animation');
+								setTimeout(function () {
+									self.addClass("animated " + animationClass);
+								}, index * 500);
+							});
+						},
+						end: function (slider) {
+							slider.find('.intro_layers').children().each(function () {
+								var self = $(this);
+								var animationClass = !self.data('animation') ? 'fadeInDown' : self.data('animation');
+								self.removeClass('animated ' + animationClass).css({ 'visibility': 'hidden' });
+								// $(this).attr('class', '');
+							});
+						},
+
+					})
+					//wrapping nav with container - uncomment if need
+					// .find('.flex-control-nav')
+					// .wrap('<div class="container nav-container"/>')
+				}); //.page_slider flex slider
+
+				$(".flexslider").each(function (index) {
+					var $currentSlider = $(this);
+					//exit if intro slider already activated
+					if ($currentSlider.find('.flex-active-slide').length) {
+						return;
+					}
+					$currentSlider.flexslider({
+						animation: "fade",
+						useCSS: true,
+						controlNav: true,
+						directionNav: false,
+						prevText: "",
+						nextText: "",
+						smoothHeight: false,
+						slideshowSpeed: 5000,
+						animationSpeed: 800,
+					})
+				});
+			}
+		 }
+	 </script>
+ }

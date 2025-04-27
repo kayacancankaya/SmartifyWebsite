@@ -1,0 +1,217 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="WelcomeTo" xml:space="preserve">
+    <value>HOŞGELDİNİZ</value>
+  </data>
+  <data name="SmartifyYourBusiness" xml:space="preserve">
+    <value>Smartify - İşletmenize Değer Katın</value>
+  </data>
+  <data name="SmartifyDescription" xml:space="preserve">
+    <value>Smartify olarak, işletmelerin hedeflerine ulaşmasını sağlayan özel yazılım çözümleri sunuyoruz. Web Uygulamaları, Web Siteleri, Masaüstü Uygulamaları ve Özel İş Çözümleri ile ihtiyaçlarınıza uygun yenilikçi ve ölçeklenebilir teknolojiler geliştiriyoruz. İşinizi akıllandırmak için size özel çözümler sunuyoruz.</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Ara</value>
+  </data>
+  <data name="Web Design" xml:space="preserve">
+    <value>Web Tasarım</value>
+  </data>
+  <data name="Get Started" xml:space="preserve">
+    <value>İncele</value>
+  </data>
+  <data name="Solutions" xml:space="preserve">
+    <value>İşletmenİz İçİn</value>
+  </data>
+  <data name="Our Folio" xml:space="preserve">
+    <value>ÜRÜNLERİMİZ</value>
+  </data>
+  <data name="Modern" xml:space="preserve">
+    <value>Modern</value>
+  </data>
+  <data name="For Your Need" xml:space="preserve">
+    <value>ÇÖzümlerİ</value>
+  </data>
+  <data name="We are Smartify" xml:space="preserve">
+    <value>Smartify olarak, online &amp; offline istekleriniz için etklili çözümler sunuyoruz.</value>
+  </data>
+  <data name="Smartify at" xml:space="preserve">
+    <value>İşletmenizi dijital dünyada ileri taşımak maksadıyla, iş zekanıza uygun yüksek kaliteli ürünler sunuyoruz. Raporlama ve Analiz araçlarını çözümlerinize entegre ederek veri odaklı kararlar verme sürecinize destek oluyoruz. Yaratıcı ve yenilikçi yaklaşımımızla işletmenizin başarısı için en iyi araçlardan faydalanıyoruz.</value>
+  </data>
+  <data name="Web Applications" xml:space="preserve">
+    <value>Web Uygulamaları</value>
+  </data>
+  <data name="Web Applications P" xml:space="preserve">
+    <value>Web uygulama çözümlerimiz, işletmenizin gereksinimlerine uygun dinamik, güvenli ve ölçeklenebilir platformlar sunmak için tasarlanmıştır. İster dahili operasyonlar ister müşteri etkileşimi için olsun, verimliliği artıran ve sorunsuz kullanıcı deneyimleri sunan uygulamalar geliştiriyoruz. En son teknolojiye sahip web uygulamaları için Smartify'ye güvenin.</value>
+  </data>
+  <data name="IndexKeywords" xml:space="preserve">
+    <value>Smartify, dijital iş çözümleri, web geliştirme, web sitesi tasarımı, e-ticaret çözümleri, özel uygulamalar, BI raporlama, iş analitiği, masaüstü uygulamaları, mobil uygulamalar, Excel şablonları, Google Sheets şablonları, SEO optimizasyonu
+</value>
+  </data>
+  <data name="Mobile Applications" xml:space="preserve">
+    <value>Mobİl Uygulamalar</value>
+  </data>
+  <data name="Desktop Applications" xml:space="preserve">
+    <value>Masaüstü Uygulamaları</value>
+  </data>
+  <data name="ECommerce" xml:space="preserve">
+    <value>E Tİcaret</value>
+  </data>
+  <data name="ECommerce P" xml:space="preserve">
+    <value>E-ticaret çözümlerimiz, işletmelerin güçlü bir çevrimiçi varlık oluşturmasına yardımcı olmak için tasarlanmıştır. Kullanıcı dostu çevrimiçi mağazalar oluşturmaktan güvenli ödeme sistemlerini entegre etmeye kadar, müşterileriniz için sorunsuz bir alışveriş deneyimi sunuyoruz. Smartify’nin özel e-ticaret platformlarıyla işinizi büyütün.</value>
+  </data>
+  <data name="Web Design P" xml:space="preserve">
+    <value>Smartify'da, işletmenizin ihtiyaçlarına uygun görsel açıdan çekici ve kullanıcı dostu web tasarımları oluşturuyoruz. Tasarımlarımız, estetiği işlevsellikle birleştirerek kullanıcılarınız için etkileyici bir deneyim sunar. Öne çıkan bir web sitesiyle kalıcı bir izlenim bırakmanıza yardımcı olalım.</value>
+  </data>
+  <data name="Mobile Applications P" xml:space="preserve">
+    <value>Mobil uygulama çözümlerimiz, sorunsuz işlevsellik ve sezgisel kullanıcı deneyimleri sağlamak için tasarlanmıştır. iOS, Android veya çok platformlu uygulamalara ihtiyacınız olsun, iş hedeflerinize uygun özel çözümler geliştiriyoruz. Smartify'nin yenilikçi mobil uygulamalarıyla müşterilerinize hareket halindeyken güç katın.</value>
+  </data>
+  <data name="Desktop Applications P" xml:space="preserve">
+    <value>Masaüstü uygulama çözümlerimiz, belirli ihtiyaçlarınıza uygun sağlam ve verimli yazılımlar sunmak için tasarlanmıştır. Bağımsız uygulamalardan kurumsal düzeyde çözümlere kadar, verimliliği artıran ve operasyonları kolaylaştıran güçlü araçlar sunuyoruz. Güvenilir ve özelleştirilmiş masaüstü uygulamaları için Smartify'ye güvenin.</value>
+  </data>
+  <data name="Software Developer" xml:space="preserve">
+    <value>Yazılım Geliştirme Uzmanı</value>
+  </data>
+  <data name="RPA Developer" xml:space="preserve">
+    <value>RPA Geliştirme Uzmanı</value>
+  </data>
+  <data name="Marketing Manager" xml:space="preserve">
+    <value>Pazarlama Yöneticisi</value>
+  </data>
+  <data name="Write Us" xml:space="preserve">
+    <value>Bize Yazın</value>
+  </data>
+  <data name="All" xml:space="preserve">
+    <value>Tümü</value>
+  </data>
+  <data name="AppDev" xml:space="preserve">
+    <value>App Geliştirme</value>
+  </data>
+  <data name="BI and Reporting" xml:space="preserve">
+    <value>İş Zekası ve Raporlama</value>
+  </data>
+  <data name="Cloud and Offline" xml:space="preserve">
+    <value>Bulut ve Çevrİmİçİ</value>
+  </data>
+  <data name="Business" xml:space="preserve">
+    <value>Çözümler</value>
+  </data>
+  <data name="Design &amp; Marketing" xml:space="preserve">
+    <value>Tasarım &amp; Marketing</value>
+  </data>
+</root>

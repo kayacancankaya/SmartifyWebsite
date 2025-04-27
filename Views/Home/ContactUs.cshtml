@@ -1,0 +1,93 @@
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+@section Title {
+	<title>@Localizer["SmartifyYourBusiness"]</title>
+}
+@section Description {
+	<meta name="description" content="@Localizer["SmartifyDescription"]">
+}
+
+@section Keywords {
+	<meta name="keywords" content="@Localizer["IndexKeywords"]">
+}
+
+
+			@*breadcrumb*@
+			<section class="page_title ls s-py-50 corner-title ls invise overflow-visible">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-12 text-center">
+							<h1>@Localizer["Contact Us"]</h1>
+							<ol class="breadcrumb">
+								<li class="breadcrumb-item">
+									<a asp-controller="Home" asp-action="Index">@Localizer["MainPage"]</a>
+								</li>
+								<li class="breadcrumb-item active">
+									@Localizer["Contact Us"]
+								</li>
+							</ol>
+							<div class="divider-15 d-none d-xl-block"></div>
+						</div>
+					</div>
+				</div>
+			</section>
+			
+			@Html.Partial("ContactUsCallUs")
+			@Html.Partial("ContactUsForm")
+
+			@* <section class="about-map ms page_map" data-draggable="false" data-scrollwheel="false"> 
+
+				<div class="marker">
+					<div class="marker-address">2231 Sycamore, Green Bay, WI 54304</div>
+					<div class="marker-description">
+
+						<ul class="list-unstyled">
+							<li>
+								<span class="icon-inline">
+									<span class="icon-styled color-main">
+										<i class="fa fa-map-marker"></i>
+									</span>
+
+									<span>
+										2231 Sycamore, Green Bay, WI 54304
+									</span>
+								</span>
+							</li>
+
+							<li>
+								<span class="icon-inline">
+									<span class="icon-styled color-main">
+										<i class="fa fa-phone"></i>
+									</span>
+
+									<span>
+										1-800-123-4567
+									</span>
+								</span>
+							</li>
+							<li>
+								<span class="icon-inline">
+									<span class="icon-styled color-main">
+										<i class="fa fa-envelope"></i>
+									</span>
+
+									<span>
+										DotCreative@example.com
+									</span>
+								</span>
+							</li>
+						</ul>
+					</div>
+
+					<img class="marker-icon" src="images/map_marker_icon.png" alt="">
+				</div>
+				<!-- .marker -->
+
+			</section>
+			*@
+
+
+
+	<!-- Google Map Script -->
+	@* <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>*@
+

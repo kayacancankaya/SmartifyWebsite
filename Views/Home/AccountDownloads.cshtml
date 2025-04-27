@@ -1,0 +1,174 @@
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+@section Title {
+	<title>@Localizer["SmartifyYourBusiness"]</title>
+}
+@section Description {
+	<meta name="description" content="@Localizer["SmartifyDescription"]">
+}
+@section Keywords {
+	<meta name="keywords" content="@Localizer["IndexKeywords"]">
+}
+			<section class="page_title ls s-py-50 corner-title ls invise overflow-visible">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-12 text-center">
+							<h1>Downloads</h1>
+							<ol class="breadcrumb">
+								<li class="breadcrumb-item">
+									<a href="./">Home</a>
+								</li>
+								<li class="breadcrumb-item">
+									<a href="#">Shop</a>
+								</li>
+								<li class="breadcrumb-item active">
+									Downloads
+								</li>
+							</ol>
+							<div class="divider-15 d-none d-xl-block"></div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+
+			<section class="ls s-pt-50 s-pb-100">
+				<div class="container">
+					<div class="row">
+
+						<div class="d-none d-lg-block divider-50"></div>
+
+						<main class="col-lg-12">
+							<article>
+								<header class="entry-header">
+									<h1 class="entry-title">Downloads</h1>
+									<span class="edit-link">
+										<a class="post-edit-link" href="#">
+											Edit
+											<span class="screen-reader-text"> "My account"</span>
+										</a>
+									</span>
+								</header>
+								<!-- .entry-header -->
+								<div class="entry-content">
+									<div class="woocommerce">
+										<nav class="woocommerce-MyAccount-navigation">
+											<ul>
+												<li>
+													<a href="shop-account-dashboard.html">Dashboard</a>
+												</li>
+												<li>
+													<a href="shop-account-orders.html">Orders</a>
+												</li>
+												<li class="is-active">
+													<a href="shop-account-downloads.html">Downloads</a>
+												</li>
+												<li>
+													<a href="shop-account-details.html">Account details</a>
+												</li>
+												<li>
+													<a href="shop-account-login.html">Logout</a>
+												</li>
+											</ul>
+										</nav>
+
+
+										<div class="woocommerce-MyAccount-content">
+
+											<div class="woocommerce-Message woocommerce-Message--info woocommerce-info">
+												<a class="woocommerce-Button button" href="shop-right.html">
+													Go shop
+												</a>
+												No downloads available yet.
+											</div>
+
+											<table class="woocommerce-MyAccount-downloads shop_table shop_table_responsive">
+												<thead>
+													<tr>
+														<th class="download-product">
+															<span class="nobr">Product</span>
+														</th>
+														<th class="download-remaining">
+															<span class="nobr">Downloads remaining</span>
+														</th>
+														<th class="download-expires">
+															<span class="nobr">Expires</span>
+														</th>
+														<th class="download-file">
+															<span class="nobr">File</span>
+														</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td class="download-product" data-title="Product">
+															<a href="#">
+																Downloadable Product #1
+															</a>
+														</td>
+														<td class="download-remaining" data-title="Downloads remaining">
+															∞
+														</td>
+														<td class="download-expires" data-title="Expires">
+															Never
+														</td>
+														<td class="download-file" data-title="File">
+															<a href="#" class="woocommerce-MyAccount-downloads-file">
+																File
+															</a>
+														</td>
+													</tr>
+													<tr>
+														<td class="download-product" data-title="Product">
+															<a href="#">
+																Product Downloadable #2
+															</a>
+														</td>
+														<td class="download-remaining" data-title="Downloads remaining">
+															∞
+														</td>
+														<td class="download-expires" data-title="Expires">
+															Never
+														</td>
+														<td class="download-file" data-title="File">
+															<a href="#" class="woocommerce-MyAccount-downloads-file">
+																File
+															</a>
+														</td>
+													</tr>
+													<tr>
+														<td class="download-product" data-title="Product">
+															<a href="#">
+																Downloadable Product #3
+															</a>
+														</td>
+														<td class="download-remaining" data-title="Downloads remaining">
+															∞
+														</td>
+														<td class="download-expires" data-title="Expires">
+															Never
+														</td>
+														<td class="download-file" data-title="File">
+															<a href="#" class="woocommerce-MyAccount-downloads-file">
+																File
+															</a>
+														</td>
+													</tr>
+												</tbody>
+											</table>
+
+										</div>
+									</div>
+								</div>
+								<!-- .entry-content -->
+							</article>
+
+
+						</main>
+
+						<div class="d-none d-lg-block divider-75"></div>
+					</div>
+
+				</div>
+			</section>
+

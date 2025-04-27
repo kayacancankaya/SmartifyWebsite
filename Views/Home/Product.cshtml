@@ -1,0 +1,311 @@
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@model SmartifyWebsite.Data.Product
+@inject IViewLocalizer Localizer;
+@{
+	var productName = string.Empty;
+	var description = string.Empty;
+	var keywords = string.Empty;
+	var categoryName = string.Empty;
+	var currentculture = ViewData["CurrentCulture"].ToString();
+	var pricingListExists = Convert.ToBoolean(ViewData["PricingListExists"]);
+	string filePath = string.Empty;
+	string rootPath = ViewData["RootPath"].ToString();
+	string photoPathBase = string.Format("~/images/gallery/{0}/", currentculture);
+	string photoPath = string.Empty;
+	switch (currentculture)
+	{
+		case "en-US":
+			description = Model.Description_EN;
+			productName = Model.Name_EN;
+			keywords = Model.Keywords_EN;
+			categoryName = Model.Category.CategoryName_EN;
+			break;
+		case "tr-TR":
+			description = Model.Description_TR;
+			productName = Model.Name_TR;
+			keywords = Model.Keywords_TR;
+			categoryName = Model.Category.CategoryName_TR;
+			break;
+		case "es-ES":
+			description = Model.Description_ES;
+			productName = Model.Name_ES;
+			keywords = Model.Keywords_ES;
+			categoryName = Model.Category.CategoryName_ES;
+			break;
+		default:
+			description = Model.Description_EN;
+			productName = Model.Name_EN;
+			keywords = Model.Keywords_EN;
+			categoryName = Model.Category.CategoryName_EN;
+			break;
+	}
+}
+@section Title {
+	<title>Smartify - @productName</title>
+}
+@section Description {
+	<meta name="description" content="@description">
+}
+@section Keywords {
+
+	<meta name="keywords" content="@keywords">
+}
+
+<div id="content">
+	<!--breadcrumb-->
+	<section class="page_title ls s-py-50 corner-title ls invise overflow-visible">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12 text-center">
+					<h1>@productName</h1>
+					<ol class="breadcrumb">
+						<li class="breadcrumb-item">
+							<a asp-controller="Home" asp-action="Index">@Localizer["MainPage"]</a>
+						</li>
+						<li class="breadcrumb-item">
+							<a asp-controller="Home" asp-action="Services">@Localizer["Services"]</a>
+						</li>
+						<li class="breadcrumb-item">
+							<a asp-controller="Home" asp-action="Category" asp-route-categoryID="@Model.CategoryID">@categoryName</a>
+						</li>
+						<li class="breadcrumb-item active">
+							@productName
+						</li>
+					</ol>
+					<div class="divider-15 d-none d-xl-block"></div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!--product definition-->
+	<section class="ls s-pt-50 s-pb-130 gallery-item">
+		<div class="d-none d-lg-block divider-65"></div>
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<div class="vertical-item gallery-padding hero-bg text-center">
+						<div class="item-media">
+							<div class="owl-carousel gallery-owl-nav" data-margin="0" data-responsive-lg="1" data-responsive-md="1" data-responsive-sm="1" data-responsive-xs="1" data-dots="false" data-nav="true">
+							
+								@for(int i=1;i<6;i++)
+								{
+
+									filePath = String.Format("{0}/images/gallery/{1}/{2}/{3}.png",rootPath, currentculture, Model.ProductCode, i);
+									photoPath = string.Format("{0}{1}/{2}.png", photoPathBase, Model.ProductCode.Substring(0, 6),i);
+
+									if (File.Exists(filePath) &&
+										i == 1)
+									{
+										<a href="@Url.Content(photoPath)" class="photoswipe-link" data-iframe="@Url.Content(photoPath)">
+											<img src="@Url.Content(photoPath)" alt="product photo">
+										</a>
+									}
+									else if (!File.Exists(filePath) &&
+											i == 1)
+									{
+										<a href="~/images/products/defaultProductImage.jpg" class="photoswipe-link" data-iframe="@Url.Content(photoPath)">
+											<img src="~/images/products/defaultProductImage.jpg" alt="product photo">
+										</a>
+									}
+									else if (File.Exists(filePath))
+									{
+										<a href="@Url.Content(photoPath)" class="photoswipe-link" data-iframe="@Url.Content(photoPath)">
+											<img src="@Url.Content(photoPath)" alt="product photo">
+										</a>
+									}
+									else
+										break;
+								}
+							
+							</div>
+						</div>
+						<div class="item-content">
+							<h6>
+								@productName
+							</h6>
+							<p>
+								@description
+							</p>
+							@* <div class="social-icons">
+								<a href="#" class="fa fa-facebook color-icon bg-icon rounded-icon" title="facebook"></a>
+								<a href="#" class="fa fa-twitter color-icon bg-icon rounded-icon" title="twitter"></a>
+								<a href="#" class="fa fa-google-plus color-icon bg-icon rounded-icon" title="google"></a>
+								<a href="#" class="fa fa-youtube-play  color-icon bg-icon rounded-icon" title="youtube-play"></a>
+								<a href="#" class="fa fa-linkedin color-icon bg-icon rounded-icon" title="linkedin"></a>
+							</div> *@
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="d-none d-lg-block divider-60"></div>
+
+		</div>
+		<div class="d-none d-lg-block divider-75"></div>
+	</section>
+</div>
+<input type="hidden" value="1" id="currentState" />
+<input type="hidden" value="@pricingListExists" id="pricing-list-exists" />
+<input type="hidden" value="@Model.ProductCode" id="product-code" />
+<input type="hidden" value="@Model.Related" id="related" />
+<input type="hidden" value="@Model.CategoryID" id="category-id" />
+@section Scripts {
+	<script>
+		$(document).ready(function () {
+
+			function debounce(func, wait) {
+				let timeout;
+				return function () {
+					const context = this, args = arguments;
+					clearTimeout(timeout);
+					timeout = setTimeout(() => func.apply(context, args), wait);
+				};
+			}
+
+
+			$(window).scroll(debounce(function () {
+				var currentHeight = $(window).scrollTop();
+				var currentState = parseInt($('#currentState').val());
+				var pricingListExists = $('#pricing-list-exists').val() === "true";
+
+				if (currentHeight >= 0 && currentState === 1 && pricingListExists) {
+					currentState = 2;
+					$('#currentState').val(currentState);
+					$.ajax({
+						type: "GET",
+						url: "/Home/PricingList",
+						async: true,
+						processData: true,
+						cache: true,
+						success: function (result) {
+							$("#content").append(result);
+
+						}
+					});
+
+				}
+				else if (currentHeight >= 0 && currentState === 1 && !pricingListExists) {
+					currentState = 3;
+					productCode = $("#product-code").val();
+					related = $("#related").val();
+
+					let categoryID = 0;
+					if (!isNaN(parseInt($("#category-id").val()))) {
+						categoryID = parseInt($("#category-id").val());
+					}
+					$('#currentState').val(currentState);
+					$.ajax({
+						type: "GET",
+						url: "/Home/ProductRelated",
+						data: {
+							productCode: productCode,
+							related: related,
+							categoryID: categoryID,
+						},
+						async: true,
+						processData: true,
+						cache: true,
+						success: function (result) {
+
+							$("#content").append(result);
+							initializeOwlCarousel();
+							$('.related.products ul.products, .upsells.products ul.products, .cross-sells ul.products')
+								.addClass('owl-carousel top-right-nav')
+								.owlCarousel({
+									loop: true,
+									autoplay: true,
+									margin: 30,
+									nav: true,
+									dots: false,
+									items: 3,
+									navText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>'],
+									responsive: {
+										0: {
+											items: 1
+										},
+										767: {
+											items: 2
+										},
+										992: {
+											items: 2
+										},
+										1200: {
+											items: 3
+										}
+									}
+								});
+
+						}
+					});
+
+				}
+				else if (currentHeight >= 250 && currentState === 3) {
+					currentState = 4;
+					$('#currentState').val(currentState);
+					$.ajax({
+						type: "GET",
+						url: "/Home/ContactUsForm",
+						async: true,
+						processData: true,
+						cache: true,
+						success: function (result) {
+							$("#content").append(result);
+						}
+					});
+
+				}
+			}, 200));
+		});
+		function initializeOwlCarousel() {
+			$('.owl-carousel').each(function () {
+				var $carousel = $(this);
+
+				// Check if already initialized
+				if ($carousel.hasClass('owl-loaded')) {
+					return; // Skip reinitialization
+				}
+
+				var data = $carousel.data();
+
+				var loop = data.loop || false,
+					margin = (data.margin || data.margin === 0) ? data.margin : 30,
+					nav = data.nav || false,
+					navPrev = data.navPrev || '<i class="fa fa-angle-left"></i>',
+					navNext = data.navNext || '<i class="fa fa-angle-right"></i>',
+					dots = data.dots || false,
+					themeClass = data.themeclass || 'owl-theme',
+					center = data.center || false,
+					items = data.items || 4,
+					autoplay = data.autoplay || false,
+					responsiveXs = data.responsiveXs || 1,
+					responsiveSm = data.responsiveSm || 2,
+					responsiveMd = data.responsiveMd || 3,
+					responsiveLg = data.responsiveLg || 4,
+					draggable = (data.draggable === false) ? false : true;
+
+				$carousel.owlCarousel({
+					loop: loop,
+					margin: margin,
+					nav: nav,
+					autoplay: autoplay,
+					dots: dots,
+					center: center,
+					navText: [navPrev, navNext],
+					mouseDrag: draggable,
+					touchDrag: draggable,
+					items: items,
+					responsive: {
+						0: { items: responsiveXs },
+						767: { items: responsiveSm },
+						992: { items: responsiveMd },
+						1200: { items: responsiveLg }
+					},
+				}).addClass(themeClass);
+
+				// Mark carousel as initialized
+				$carousel.addClass('owl-loaded');
+
+			});
+		}
+	</script>
+}

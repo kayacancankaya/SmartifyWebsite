@@ -1,0 +1,177 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="WebApplicationDevelopmentTitle" xml:space="preserve">
+    <value>Smartify-Aplicaciones Web</value>
+  </data>
+  <data name="WebApplicationDevelopmentDescription" xml:space="preserve">
+    <value>Ofrecemos servicios de desarrollo de aplicaciones web personalizadas para satisfacer las necesidades únicas de tu negocio. Desde aplicaciones móviles hasta soluciones basadas en la nube, te ayudamos a hacer más inteligente tu negocio y optimizar procesos para lograr mayor eficiencia y éxito.</value>
+  </data>
+  <data name="WebApplicationDevelopmentKeywords" xml:space="preserve">
+    <value>desarrollo de aplicaciones web, aplicaciones web personalizadas, desarrollo de aplicaciones móviles, soluciones en la nube, soluciones para negocios, comercio electrónico, desarrollo web, inteligencia empresarial, informes BI, hacer más inteligente el negocio</value>
+  </data>
+  <data name="Specialities" xml:space="preserve">
+    <value>Especialidades</value>
+  </data>
+  <data name="MainPage" xml:space="preserve">
+    <value>Inicio</value>
+  </data>
+  <data name="ECommerce" xml:space="preserve">
+    <value>Comercio Electrónico</value>
+  </data>
+  <data name="ECommerceDescription" xml:space="preserve">
+    <value>Impulsa tu negocio con nuestras soluciones completas de comercio electrónico. Desde el desarrollo de tiendas online hasta pasarelas de pago seguras, ofrecemos todas las herramientas necesarias para triunfar en el mercado digital.</value>
+  </data>
+  <data name="ECommerceTitle" xml:space="preserve">
+    <value>Smartify-Comercio Electrónico</value>
+  </data>
+  <data name="ECommerceP1" xml:space="preserve">
+    <value>Impulsa tu negocio con soluciones de comercio electrónico diseñadas para aumentar ventas y mejorar la experiencia del cliente.</value>
+  </data>
+  <data name="ECommerceP2" xml:space="preserve">
+    <value>Nuestros servicios de desarrollo de comercio electrónico se centran en crear tiendas online dinámicas, seguras y fáciles de usar, diseñadas para alcanzar los objetivos de tu negocio. Desde la presentación de productos hasta la integración de pagos eficientes, entregamos plataformas que aumentan las conversiones y garantizan la satisfacción del cliente. Ya sea que estés lanzando una nueva tienda online o mejorando una existente, ofrecemos soluciones escalables que crecen junto con tu negocio.</value>
+  </data>
+  <data name="ECommerceP3" xml:space="preserve">
+    <value>Únete a nosotros para crear una plataforma de comercio electrónico que te diferencie de la competencia. Nuestra experiencia asegura que tu tienda online no solo atraiga clientes, sino que también los mantenga regresando por más.</value>
+  </data>
+  <data name="ECommerceL1" xml:space="preserve">
+    <value>Plataformas personalizadas según tus necesidades</value>
+  </data>
+  <data name="ECommerceL2" xml:space="preserve">
+    <value>Diseños responsivos para todos los dispositivos</value>
+  </data>
+  <data name="ECommerceL3" xml:space="preserve">
+    <value>Integración de pasarelas de pago seguras</value>
+  </data>
+  <data name="ECommerceL4" xml:space="preserve">
+    <value>Interfaces fáciles de usar para una navegación sencilla</value>
+  </data>
+  <data name="ECommerceL5" xml:space="preserve">
+    <value>Soluciones escalables para apoyar el crecimiento del negocio</value>
+  </data>
+  <data name="ECommerceL6" xml:space="preserve">
+    <value>Análisis y reportes para seguimiento del rendimiento</value>
+  </data>
+  <data name="ECommerceKeywords" xml:space="preserve">
+    <value>comercio electrónico, desarrollo de tiendas online, mercado digital, pasarelas de pago seguras, compras en línea, soluciones de comercio electrónico, negocio online, integración de carrito de compras, ventas digitales, desarrollo de comercio electrónico</value>
+  </data>
+  <data name="Services" xml:space="preserve">
+    <value>Servicios</value>
+  </data>
+</root>

@@ -1,0 +1,27 @@
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+<div class="col-md-4 c-gutter-50 service-widget">
+
+	<h6>@Localizer["Other Services"]</h6>
+
+	<ul class="list">
+		<li>
+			<a asp-controller="Home" asp-action="WebApplicationDevelopment">@Localizer["WebApplicationDevelopment"]</a>
+		</li>
+		<li>
+			<a asp-controller="Home" asp-action="MobileApplicationDevelopment">@Localizer["MobileApplicationDevelopement"]</a>
+		</li>
+		<li>
+			<a asp-controller="Home" asp-action="DesktopApplicationDevelopment">@Localizer["DesktopApplicationDevelopment"]</a>
+		</li>
+		<li>
+			<a asp-controller="Home" asp-action="WebDesign">@Localizer["Web Design"]</a>
+		</li>
+		<li>
+			<a asp-controller="Home" asp-action="ECommerceSolutions">@Localizer["ECommerceSolutions"]</a>
+		</li>
+		<li>
+			<a asp-controller="Home" asp-action="BIandReporting">@Localizer["BIandReporting"]</a>
+		</li>
+	</ul>
+</div>

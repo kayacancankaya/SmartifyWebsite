@@ -1,0 +1,90 @@
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+@section Title {
+	<title>@Localizer["ECommerceTitle"]</title>
+}
+@section Description {
+	<meta name="description" content="@Localizer["ECommerceDescription"]">
+}
+@section Keywords {
+	<meta name="keywords" content="@Localizer["ECommerceKeywords"]">
+}
+
+<!--breadcrumb-->
+<section class="page_title ls s-py-50 corner-title ls invise overflow-visible">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12 text-center">
+				<h1>@Localizer["ECommerce"]</h1>
+				<ol class="breadcrumb">
+					<li class="breadcrumb-item">
+						<a asp-controller="Home" asp-action="Index">@Localizer["MainPage"]</a>
+					</li>
+					<li class="breadcrumb-item">
+						<a asp-controller="Home" asp-action="Services">@Localizer["Services"]</a>
+					</li>
+					<li class="breadcrumb-item active">
+						<a asp-controller="Home" asp-action="WebApplicationDevelopment">@Localizer["ECommerce"]</a>
+					</li>
+				</ol>
+				<div class="divider-15 d-none d-xl-block"></div>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+<section class="ls s-pt-30 s-pb-50 s-pt-lg-50 s-pb-lg-100 c-mb-50 service-item4">
+	<div class="d-none d-lg-block divider-65"></div>
+	<div class="container">
+		<div class="row">
+			<!--sidebar-->
+			@Html.Partial("SingleServicesSidebar")
+			<!--description section-->
+			<div class="col-md-8 ">
+				<img src="~/images/ecommerce.jpg" alt="E Commerce Solutions">
+				<div class="icon-box hero-bg single">
+					<p class="excerpt">
+						@Localizer["ECommerceP1"]
+					</p>
+					<p>
+						@Localizer["ECommerceP2"]
+					</p>
+					<div class="row c-gutter-60 c-mb-20 c-mb-lg-40">
+
+						<div class="col-md-12 col-lg-12 list-comtent">
+							<h6>@Localizer["Specialities"]</h6>
+							<ul class="list1">
+								<li>
+									@Localizer["ECommerceL1"]
+								</li>
+								<li>
+									@Localizer["ECommerceL2"]
+								</li>
+								<li>
+									@Localizer["ECommerceL3"]
+								</li>
+								<li>
+									@Localizer["ECommerceL4"]
+								</li>
+								<li>
+									@Localizer["ECommerceL5"]
+								</li>
+								<li>
+									@Localizer["ECommerceL6"]
+								</li>
+							</ul>
+						</div>
+					</div>
+					<!-- .row -->
+
+					<p>
+						@Localizer["ECommerceP3"]
+					</p>
+
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="d-none d-lg-block divider-50"></div>
+</section>

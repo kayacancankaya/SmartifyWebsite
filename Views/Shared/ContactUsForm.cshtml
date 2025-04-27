@@ -1,0 +1,68 @@
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+<section class="s-pb-130 s-pb-lg-170 " style="margin-top:60px;">
+	<div class="container">
+		<form class="contact-form c-mb-20 c-gutter-20">
+			<div class="row">
+				<div class="col-sm-6">
+					<div class="form-group has-placeholder">
+						<label for="name">
+							@Localizer["Full Name"]
+							<span class="required">*</span>
+						</label>
+						<input type="text" aria-required="true" size="30" value="" name="name" id="name" class="form-control" placeholder=@Localizer["Full Name"]>
+					</div>
+				</div>
+				<div class="col-sm-6">
+					<div class="form-group has-placeholder">
+						<label for="email">
+							@Localizer["Email Address"]
+							<span class="required">*</span>
+						</label>
+						<input type="email" aria-required="true" size="30" value="" name="email" id="email" class="form-control" placeholder=@Localizer["Email Address"]>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+
+				<div class="col-sm-6">
+					<div class="form-group has-placeholder">
+						<label for="phone">
+							@Localizer["Phone Number"]
+							<span class="required">*</span>
+						</label>
+						<input type="text" aria-required="true" size="30" value="" name="phone" id="phone" class="form-control" placeholder=@Localizer["Phone Number"]>
+					</div>
+				</div>
+				<div class="col-sm-6">
+					<div class="form-group has-placeholder">
+						<label for="subject">
+							@Localizer["Subject"]
+							<span class="required">*</span>
+						</label>
+						<input type="text" aria-required="true" size="30" value="" name="subject" id="subject" class="form-control" placeholder=@Localizer["Subject"]>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="form-group has-placeholder">
+						<label for="message">@Localizer["Message"]</label>
+						<textarea aria-required="true" rows="6" cols="45" name="message" id="message" class="form-control" placeholder=@Localizer["Message"]></textarea>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-12 text-center mt-15">
+					<div class="form-group">
+						<button type="submit" id="contact_form_submit" name="contact_submit" class="btn btn-maincolor">
+							@Localizer["Submit"]
+						</button>
+					</div>
+				</div>
+
+			</div>
+		</form>
+	</div>
+	<div class="d-none d-lg-block divider-75"></div>
+</section>

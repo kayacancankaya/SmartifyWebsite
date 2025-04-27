@@ -1,0 +1,68 @@
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+<section class="page_slider team_slider" id="team">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="shortcode-team-slider main-team">
+				<h3 class="slider-title">Team</h3>
+				<div class="flexslider team-slider" data-nav="false" data-dots="true">
+					<ul class="slides">
+						<li class="ls">
+							<img src="~/images/team/team_slide_01.jpg" alt="team photo 1">
+						</li>
+						<li class="ls">
+							<img src="~/images/team/team_slide_02.jpg" alt="team photo 2">
+						</li>
+						<li class="ls">
+							<img src="~/images/team/team_slide_03.jpg" alt="team photo 3">
+						</li>
+					</ul>
+				</div>
+				<!-- eof flexslider -->
+				<div class="flexslider-controls">
+					<ul class="flex-control-nav-1">
+						<li class="menu_item flex-active">
+							Kayacan Kirpikli
+							<span class="position">@Localizer["Software Developer"]</span>
+							@* <span class="team-social-icons">
+							<span class="social-icons">
+							<a href="#" class="fa fa-facebook color-icon border-icon rounded-icon" title="facebook"></a>
+							<a href="#" class="fa fa-twitter color-icon border-icon rounded-icon" title="twitter"></a>
+							<a href="#" class="fa fa-google color-icon border-icon rounded-icon" title="google"></a>
+							</span>
+							</span> *@
+						</li>
+						<li class="menu_item">
+							Zeynep Türeli
+							<span class="position">@Localizer["RPA Developer"]</span>
+							@* <span class="team-social-icons">
+							<span class="social-icons">
+							<a href="#" class="fa fa-facebook color-icon border-icon rounded-icon" title="facebook"></a>
+							<a href="#" class="fa fa-twitter color-icon border-icon rounded-icon" title="twitter"></a>
+							<a href="#" class="fa fa-google color-icon border-icon rounded-icon" title="google"></a>
+							</span>
+							</span> *@
+						</li>
+						<li class="menu_item" id="mm">
+							Ansin Salin
+							<span class="position">@Localizer["Marketing Manager"]</span>
+							@* <span class="team-social-icons">
+							<span class="social-icons">
+							<a href="#" class="fa fa-facebook color-icon border-icon rounded-icon" title="facebook"></a>
+							<a href="#" class="fa fa-twitter color-icon border-icon rounded-icon" title="twitter"></a>
+							<a href="#" class="fa fa-google color-icon border-icon rounded-icon" title="google"></a>
+							</span>
+							</span> *@
+						</li>
+
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="testimonials-btn text-center">
+		<a href="#team" class="btn-outline-maincolor">
+			<i class="fa fa-angle-up"></i>
+		</a>
+	</div>
+</section>

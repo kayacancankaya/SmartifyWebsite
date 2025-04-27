@@ -1,0 +1,90 @@
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@using SmartifyWebsite.Data
+@inject IViewLocalizer Localizer
+@model IEnumerable<SmartifyWebsite.Data.Product>
+@{
+	var productName = string.Empty;
+	var description = string.Empty;
+	var categoryName = string.Empty;
+	var currentculture = ViewData["CurrentCulture"].ToString();
+	string filePath = string.Empty;
+	string rootPath = ViewData["RootPath"].ToString();
+	string photoPathBase = string.Format("~/images/gallery/{0}/", currentculture);
+	string photoPath = string.Empty;
+	
+}
+@if(Model.Any())
+{
+	<section class="ls s-pt-30 s-pb-50 s-pt-lg-50 s-pb-lg-75 c-gutter-60">
+		<div class="container">
+			<div class="row">
+				<div class="d-none d-lg-block divider-65"></div>
+				<main class="col-lg-12">
+					<section class="related products">
+								<h2>@Localizer["Related"]</h2>
+								<ul class="products">
+									@foreach (var item in Model)
+									{
+										switch (currentculture)
+										{
+											case "en-US":
+												productName = item.Name_EN;
+												break;
+											case "tr-TR":
+												productName = item.Name_TR;
+												break;
+											case "es-ES":
+												productName = item.Name_ES;
+												break;
+											default:
+												productName = item.Name_EN;
+												break;
+										}
+
+										<li class="product">
+											@{
+
+												filePath = String.Format("{0}/images/gallery/{1}/{2}/{3}.png", rootPath, currentculture, item.ProductCode, 1);
+												photoPath = string.Format("{0}{1}/{2}.png", photoPathBase, item.ProductCode.Substring(0, 6), 1);
+
+												if (File.Exists(filePath) )
+												{
+													<a href="@Url.Content(photoPath)" class="photoswipe-link" data-iframe="@Url.Content(photoPath)">
+														<img src="@Url.Content(photoPath)" alt="product photo">
+														<h2>@productName</h2>
+														<span class="price">
+															<span>
+																<span>$</span>@item.ActualPrice
+															</span>
+														</span>
+													</a>
+												}
+												else if (!File.Exists(filePath))
+												{
+													<a href="~/images/products/defaultProductImage.jpg" class="photoswipe-link" data-iframe="@Url.Content(photoPath)">
+														<img src="~/images/products/defaultProductImage.jpg" alt="product photo">
+														<h2>@productName</h2>
+														<span class="price">
+															<span>
+																<span>$</span>@item.ActualPrice
+															</span>
+														</span>
+													</a>
+												}
+												
+												else
+													break;
+											}
+
+											@* 	<a rel="nofollow" href="#" data-quantity="1" data-product_id="56" data-product_sku="" class="button product_type_simple add_to_cart_button ajax_add_to_cart">Add to cart</a> *@
+										</li>
+									}
+
+								</ul>
+
+							</section>
+				</main>
+			</div>
+		</div>
+	</section>
+}

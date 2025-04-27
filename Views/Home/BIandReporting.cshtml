@@ -1,0 +1,90 @@
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+@section Title {
+	<title>@Localizer["BIandReportingTitle"]</title>
+}
+@section Description {
+	<meta name="description" content="@Localizer["BIandReportingDescription"]">
+}
+@section Keywords {
+	<meta name="keywords" content="@Localizer["BIandReportingKeywords"]">
+}
+
+<!--breadcrumb-->
+<section class="page_title ls s-py-50 corner-title ls invise overflow-visible">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12 text-center">
+				<h1>@Localizer["BIandReporting"]</h1>
+				<ol class="breadcrumb">
+					<li class="breadcrumb-item">
+						<a asp-controller="Home" asp-action="Index">@Localizer["Home"]</a>
+					</li>
+					<li class="breadcrumb-item">
+						<a asp-controller="Home" asp-action="Services">@Localizer["Services"]</a>
+					</li>
+					<li class="breadcrumb-item active">
+						<a asp-controller="Home" asp-action="BIandReporting">@Localizer["BIandReporting"]</a>
+					</li>
+				</ol>
+				<div class="divider-15 d-none d-xl-block"></div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="ls s-pt-30 s-pb-50 s-pt-lg-50 s-pb-lg-100 c-mb-50 service-item4">
+	<div class="d-none d-lg-block divider-65"></div>
+	<div class="container">
+		<div class="row">
+			<!--sidebar-->
+			@Html.Partial("SingleServicesSidebar")
+			<!--description section-->
+			<div class="col-md-8 ">
+				<img src="~/images/biandreporting.jpg" alt="BI and Reporting">
+				<div class="icon-box hero-bg single">
+					<p class="excerpt">
+						@Localizer["BIandReportingP1"]
+					</p>
+					<p>
+						@Localizer["BIandReportingP2"]
+					</p>
+					<div class="row c-gutter-60 c-mb-20 c-mb-lg-40">
+
+						<div class="col-md-12 col-lg-12 list-comtent">
+							<h6>@Localizer["Specialities"]</h6>
+							<ul class="list1">
+								<li>
+									@Localizer["BIandReportingL1"]
+								</li>
+								<li>
+									@Localizer["BIandReportingL2"]
+								</li>
+								<li>
+									@Localizer["BIandReportingL3"]
+								</li>
+								<li>
+									@Localizer["BIandReportingL4"]
+								</li>
+								<li>
+									@Localizer["BIandReportingL5"]
+								</li>
+								<li>
+									@Localizer["BIandReportingL6"]
+								</li>
+							</ul>
+						</div>
+					</div>
+					<!-- .row -->
+
+					<p>
+						@Localizer["BIandReportingP3"]
+					</p>
+
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="d-none d-lg-block divider-50"></div>
+</section>
+

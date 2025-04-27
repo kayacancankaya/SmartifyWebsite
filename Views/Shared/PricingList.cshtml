@@ -1,0 +1,556 @@
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@model SmartifyWebsite.Data.PricingList
+@inject IViewLocalizer Localizer;
+
+@{
+	var plan1 = string.Empty;
+	var plan2 = string.Empty;
+	var plan3 = string.Empty;
+	var plan1sub = string.Empty;
+	var plan2sub = string.Empty;
+	var plan3sub = string.Empty;
+	var description = string.Empty;
+	var keywords = string.Empty;
+	var categoryName = string.Empty;
+
+	string propertyName = string.Empty;
+	string propertyBool = string.Empty;
+	var currentculture = ViewData["CurrentCulture"].ToString();
+	var contactUs = string.Empty;
+	switch (currentculture)
+	{
+		case "en-US":
+			plan1 = Model.Plan1_EN;
+			plan2 = Model.Plan2_EN;
+			plan3 = Model.Plan3_EN;
+			plan1sub = Model.Plan1Sub_EN;
+			plan2sub = Model.Plan2Sub_EN;
+			plan3sub = Model.Plan3Sub_EN;
+			contactUs = "Contact Us";
+			break;
+		case "tr-TR":
+			plan1 = Model.Plan1_TR;
+			plan2 = Model.Plan2_TR;
+			plan3 = Model.Plan3_TR;
+			plan1sub = Model.Plan1Sub_TR;
+			plan2sub = Model.Plan2Sub_TR;
+			plan3sub = Model.Plan3Sub_TR;
+			contactUs = "İletişim";
+			break;
+		case "es-ES":
+			plan1 = Model.Plan1_ES;
+			plan2 = Model.Plan2_ES;
+			plan3 = Model.Plan3_ES;
+			plan1sub = Model.Plan1Sub_ES;
+			plan2sub = Model.Plan2Sub_ES;
+			plan3sub = Model.Plan3Sub_ES;
+			contactUs = "Contáctanos";
+			break;
+		default:
+			plan1 = Model.Plan1_EN;
+			plan2 = Model.Plan2_EN;
+			plan3 = Model.Plan3_EN;
+			plan1sub = Model.Plan1Sub_TR;
+			plan2sub = Model.Plan2Sub_TR;
+			plan3sub = Model.Plan3Sub_TR;
+			contactUs = "Contact Us";
+			break;
+	}
+}
+
+			<section class="ls s-pt-30 s-pb-130 s-pt-lg-50 s-pb-lg-100 pricing-page">
+				<div class="container">
+					<div class="row c-mb-50">
+						<div class="divider-70 d-none d-lg-block"></div>
+						<div class="col-lg-4 col-md-12">
+							<!--basic plan-->
+							<div class="pricing-plan color1 ls ms">
+								<div class="plan-name">
+									<h3>
+										@plan1
+									</h3>
+								</div>
+								<div class="price-wrap color-darkgrey">
+									<span class="plan-sign">$</span>
+									<span class="plan-price">@((int)Math.Floor(Model.ActualPriceBasic))</span>
+									<span class="plan-decimals">.@((Model.ActualPriceBasic % 1).ToString("00").Substring(2))</span>
+								</div>
+								<div class="plan-description color-darkgrey">
+										@plan1sub
+								</div>
+								<div class="plan-features">
+									<ul class="list-bordered">
+							@{
+
+								switch (currentculture)
+								{
+
+									case ("en-US") :
+
+										for (int i = 1;i<=10; i++)
+										{
+
+											propertyName = string.Format("Spec_EN_{0}", i);
+											var propertyInfo = Model.GetType().GetProperty(propertyName);
+											if (propertyInfo != null)
+											{
+												var value = propertyInfo.GetValue(Model) as string;
+
+												propertyBool = string.Format("ExistsSpec_Basic{0}", i);
+												var propertyBoolInfo = Model.GetType().GetProperty(propertyBool);
+												var valueBool = (bool)propertyBoolInfo.GetValue(Model);
+												if (!string.IsNullOrEmpty(value))
+												{
+													if(valueBool == true)
+													{
+														<li>@value</li>
+													}
+													else
+													{
+														<li style="text-decoration:line-through;color:gray">@value</li>
+													}
+												}
+											}
+										}
+										break;
+									case ("es-ES"):
+										for (int i = 1; i <= 10; i++)
+										{
+
+											propertyName = string.Format("Spec_ES_{0}", i);
+											var propertyInfo = Model.GetType().GetProperty(propertyName);
+											if (propertyInfo != null)
+											{
+												var value = propertyInfo.GetValue(Model) as string;
+
+												if (!string.IsNullOrEmpty(value))
+												{
+
+													propertyBool = string.Format("ExistsSpec_Basic{0}", i);
+													var propertyBoolInfo = Model.GetType().GetProperty(propertyBool);
+													var valueBool = (bool)propertyBoolInfo.GetValue(Model);
+
+													if (!string.IsNullOrEmpty(value))
+													{
+														if (valueBool == true)
+														{
+															<li>@value</li>
+														}
+														else
+														{
+															<li style="text-decoration:line-through;color:gray">@value</li>
+														}
+													}
+												}
+											}
+										}
+										break;
+									case ("tr-TR"):
+										for (int i = 1; i <= 10; i++)
+										{
+
+											propertyName = string.Format("Spec_TR_{0}", i);
+											var propertyInfo = Model.GetType().GetProperty(propertyName);
+											if (propertyInfo != null)
+											{
+												var value = propertyInfo.GetValue(Model) as string;
+
+												if (!string.IsNullOrEmpty(value))
+												{
+
+													propertyBool = string.Format("ExistsSpec_Basic{0}", i);
+													var propertyBoolInfo = Model.GetType().GetProperty(propertyBool);
+													var valueBool = (bool)propertyBoolInfo.GetValue(Model);
+
+													if (!string.IsNullOrEmpty(value))
+													{
+														if (valueBool == true)
+														{
+															<li>@value</li>
+														}
+														else
+														{
+															<li style="text-decoration:line-through;color:gray">@value</li>
+														}
+													}
+												}
+											}
+										}
+										break;
+									default :
+										for (int i = 1; i <= 10; i++)
+										{
+
+											propertyName = string.Format("Spec_EN_{0}", i);
+											var propertyInfo = Model.GetType().GetProperty(propertyName);
+											if (propertyInfo != null)
+											{
+												var value = propertyInfo.GetValue(Model) as string;
+
+												if (!string.IsNullOrEmpty(value))
+												{
+
+													propertyBool = string.Format("ExistsSpec_Basic{0}", i);
+													var propertyBoolInfo = Model.GetType().GetProperty(propertyBool);
+													var valueBool = (bool)propertyBoolInfo.GetValue(Model);
+
+													if (!string.IsNullOrEmpty(value))
+													{
+														if (valueBool == true)
+														{
+															<li>@value</li>
+														}
+														else
+														{
+															<li style="text-decoration:line-through;color:gray">@value</li>
+														}
+													}
+												}
+											}
+										}
+										break;
+								}
+							}
+										
+									</ul>
+								</div>
+								<div class="plan-button">
+									<a asp-asp-controller="Home" asp-action="ContactUs" class="btn inverse-color2">@contactUs</a>
+								</div>
+							</div>
+
+						</div>
+
+						<!--standart-->
+						<div class="col-lg-4 col-md-12">
+
+							<div class="pricing-plan plan-featured color2">
+								<div class="plan-name">
+									<h3>
+										@plan2
+									</h3>
+								</div>
+								<div class="price-wrap color-light">
+									<span class="plan-sign">$</span>
+									<span class="plan-price">@((int)Math.Floor(Model.ActualPriceBasic))</span>
+									<span class="plan-decimals">.@((Model.ActualPriceBasic % 1).ToString("00").Substring(2))</span>
+								</div>
+								<div class="plan-description color-light">
+									@plan2sub
+								</div>
+								<div class="plan-features">
+									<ul class="list-bordered">
+							@{
+
+								switch (currentculture)
+								{
+
+									case ("en-US"):
+
+										for (int i = 1; i <= 10; i++)
+										{
+
+											propertyName = string.Format("Spec_EN_{0}", i);
+											var propertyInfo = Model.GetType().GetProperty(propertyName);
+											if (propertyInfo != null)
+											{
+												var value = propertyInfo.GetValue(Model) as string;
+
+												if (!string.IsNullOrEmpty(value))
+												{
+
+													propertyBool = string.Format("ExistsSpec_Standart{0}", i);
+													var propertyBoolInfo = Model.GetType().GetProperty(propertyBool);
+													var valueBool = (bool)propertyBoolInfo.GetValue(Model);
+
+													if (!string.IsNullOrEmpty(value))
+													{
+														if (valueBool == true)
+														{
+															<li>@value</li>
+														}
+														else
+														{
+															<li style="text-decoration:line-through;color:gray">@value</li>
+														}
+													}
+												}
+											}
+										}
+										break;
+									case ("es-ES"):
+										for (int i = 1; i <= 10; i++)
+										{
+
+											propertyName = string.Format("Spec_ES_{0}", i);
+											var propertyInfo = Model.GetType().GetProperty(propertyName);
+											if (propertyInfo != null)
+											{
+												var value = propertyInfo.GetValue(Model) as string;
+
+												if (!string.IsNullOrEmpty(value))
+												{
+
+													propertyBool = string.Format("ExistsSpec_Standart{0}", i);
+													var propertyBoolInfo = Model.GetType().GetProperty(propertyBool);
+													var valueBool = (bool)propertyBoolInfo.GetValue(Model);
+
+													if (!string.IsNullOrEmpty(value))
+													{
+														if (valueBool == true)
+														{
+															<li>@value</li>
+														}
+														else
+														{
+															<li style="text-decoration:line-through;color:gray">@value</li>
+														}
+													}
+												}
+											}
+										}
+										break;
+									case ("tr-TR"):
+										for (int i = 1; i <= 10; i++)
+										{
+
+											propertyName = string.Format("Spec_TR_{0}", i);
+											var propertyInfo = Model.GetType().GetProperty(propertyName);
+											if (propertyInfo != null)
+											{
+												var value = propertyInfo.GetValue(Model) as string;
+
+												if (!string.IsNullOrEmpty(value))
+												{
+
+													propertyBool = string.Format("ExistsSpec_Standart{0}", i);
+													var propertyBoolInfo = Model.GetType().GetProperty(propertyBool);
+													var valueBool = (bool)propertyBoolInfo.GetValue(Model);
+
+													if (!string.IsNullOrEmpty(value))
+													{
+														if (valueBool == true)
+														{
+															<li>@value</li>
+														}
+														else
+														{
+															<li style="text-decoration:line-through;color:gray">@value</li>
+														}
+													}
+												}
+											}
+										}
+										break;
+									default:
+										for (int i = 1; i <= 10; i++)
+										{
+
+											propertyName = string.Format("Spec_EN_{0}", i);
+											var propertyInfo = Model.GetType().GetProperty(propertyName);
+											if (propertyInfo != null)
+											{
+												var value = propertyInfo.GetValue(Model) as string;
+
+												if (!string.IsNullOrEmpty(value))
+												{
+
+													propertyBool = string.Format("ExistsSpec_Standart{0}", i);
+													var propertyBoolInfo = Model.GetType().GetProperty(propertyBool);
+													var valueBool = (bool)propertyBoolInfo.GetValue(Model);
+
+													if (!string.IsNullOrEmpty(value))
+													{
+														if (valueBool == true)
+														{
+															<li>@value</li>
+														}
+														else
+														{
+															<li style="text-decoration:line-through;color:gray">@value</li>
+														}
+													}
+												}
+											}
+										}
+										break;
+								}
+							}
+									</ul>
+								</div>
+								<div class="plan-button">
+									<a asp-asp-controller="Home" asp-action="ContactUs" class="btn inverse-color2">@contactUs</a>
+								</div>
+							</div>
+
+						</div>
+						
+						<!--premium-->
+						<div class="col-lg-4 col-md-12 mx-sm-auto">
+
+							<div class="pricing-plan color3 ls ms">
+								<div class="plan-name">
+									<h3>
+										@plan3
+									</h3>
+								</div>
+								<div class="price-wrap color-darkgrey">
+									<span class="plan-sign">$</span>
+									<span class="plan-price">@((int)Math.Floor(Model.ActualPricePremium))</span>
+									<span class="plan-decimals">.@((Model.ActualPricePremium % 1).ToString("00").Substring(2))</span>
+
+								</div>
+								<div class="plan-description color-darkgrey">
+									@plan3sub
+								</div>
+								<div class="plan-features">
+									<ul class="list-bordered">
+							@{
+
+								switch (currentculture)
+								{
+
+									case ("en-US"):
+
+										for (int i = 1; i <= 10; i++)
+										{
+
+											propertyName = string.Format("Spec_EN_{0}", i);
+											var propertyInfo = Model.GetType().GetProperty(propertyName);
+											if (propertyInfo != null)
+											{
+												var value = propertyInfo.GetValue(Model) as string;
+
+												if (!string.IsNullOrEmpty(value))
+												{
+
+													propertyBool = string.Format("ExistsSpec_Premium{0}", i);
+													var propertyBoolInfo = Model.GetType().GetProperty(propertyBool);
+													var valueBool = (bool)propertyBoolInfo.GetValue(Model);
+
+													if (!string.IsNullOrEmpty(value))
+													{
+														if (valueBool == true)
+														{
+															<li>@value</li>
+														}
+														else
+														{
+															<li style="text-decoration:line-through;color:gray">@value</li>
+														}
+													}
+												}
+											}
+										}
+										break;
+									case ("es-ES"):
+										for (int i = 1; i <= 10; i++)
+										{
+
+											propertyName = string.Format("Spec_ES_{0}", i);
+											var propertyInfo = Model.GetType().GetProperty(propertyName);
+											if (propertyInfo != null)
+											{
+												var value = propertyInfo.GetValue(Model) as string;
+
+												if (!string.IsNullOrEmpty(value))
+												{
+
+													propertyBool = string.Format("ExistsSpec_Premium{0}", i);
+													var propertyBoolInfo = Model.GetType().GetProperty(propertyBool);
+													var valueBool = (bool)propertyBoolInfo.GetValue(Model);
+
+													if (!string.IsNullOrEmpty(value))
+													{
+														if (valueBool == true)
+														{
+															<li>@value</li>
+														}
+														else
+														{
+															<li style="text-decoration:line-through;color:gray">@value</li>
+														}
+													}
+												}
+											}
+										}
+										break;
+									case ("tr-TR"):
+										for (int i = 1; i <= 10; i++)
+										{
+
+											propertyName = string.Format("Spec_TR_{0}", i);
+											var propertyInfo = Model.GetType().GetProperty(propertyName);
+											if (propertyInfo != null)
+											{
+												var value = propertyInfo.GetValue(Model) as string;
+
+												if (!string.IsNullOrEmpty(value))
+												{
+
+													propertyBool = string.Format("ExistsSpec_Premium{0}", i);
+													var propertyBoolInfo = Model.GetType().GetProperty(propertyBool);
+													var valueBool = (bool)propertyBoolInfo.GetValue(Model);
+
+													if (!string.IsNullOrEmpty(value))
+													{
+														if (valueBool == true)
+														{
+															<li>@value</li>
+														}
+														else
+														{
+															<li style="text-decoration:line-through;color:gray">@value</li>
+														}
+													}
+												}
+											}
+										}
+										break;
+									default:
+										for (int i = 1; i <= 10; i++)
+										{
+
+											propertyName = string.Format("Spec_EN_{0}", i);
+											var propertyInfo = Model.GetType().GetProperty(propertyName);
+											if (propertyInfo != null)
+											{
+												var value = propertyInfo.GetValue(Model) as string;
+
+												if (!string.IsNullOrEmpty(value))
+												{
+
+													propertyBool = string.Format("ExistsSpec_Standart{0}", i);
+													var propertyBoolInfo = Model.GetType().GetProperty(propertyBool);
+													var valueBool = (bool)propertyBoolInfo.GetValue(Model);
+
+													if (!string.IsNullOrEmpty(value))
+													{
+														if (valueBool == true)
+														{
+															<li>@value</li>
+														}
+														else
+														{
+															<li style="text-decoration:line-through;color:gray">@value</li>
+														}
+													}
+												}
+											}
+										}
+										break;
+								}
+							}
+									</ul>
+								</div>
+								<div class="plan-button">
+									<a asp-asp-controller="Home" asp-action="ContactUs" class="btn inverse-color2">@contactUs</a>
+								</div>
+							</div>
+
+						</div>
+
+						<div class="divider-80 d-none d-lg-block"></div>
+					</div>
+				</div>
+			</section>

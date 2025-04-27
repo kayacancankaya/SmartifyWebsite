@@ -1,0 +1,90 @@
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+@section Title {
+	<title>@Localizer["SmartifyYourBusiness"]</title>
+}
+@section Description {
+	<meta name="description" content="@Localizer["SmartifyDescription"]">
+}
+
+@section Keywords {
+	<meta name="keywords" content="@Localizer["IndexKeywords"]">
+}
+<div id="content">
+	<!--breadcrumb-->
+	<section class="page_title ls s-py-50 corner-title ls invise overflow-visible">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12 text-center">
+					<h1>@Localizer["Services"]</h1>
+					<ol class="breadcrumb">
+						<li class="breadcrumb-item">
+							<a asp-controller="Home" asp-action="Index">@Localizer["MainPage"]</a>
+						</li>
+						<li class="breadcrumb-item">
+							<a asp-controller="Home" asp-action="Services">@Localizer["Services"]</a>
+						</li>
+					</ol>
+					<div class="divider-15 d-none d-xl-block"></div>
+				</div>
+			</div>
+		</div>
+	</section>
+	@Html.Partial("ServicesPartial")
+</div>
+<input type="hidden" id="currentState" value="1"/>
+
+@section Scripts {
+	 <script>
+		$(document).ready(function () {
+
+
+			function debounce(func, wait) {
+				let timeout;
+				return function () {
+					const context = this, args = arguments;
+					clearTimeout(timeout);
+					timeout = setTimeout(() => func.apply(context, args), wait);
+				};
+			}
+			
+			$(window).scroll(debounce(function () {
+				var currentHeight = $(window).scrollTop();
+				var currentState = parseInt($('#currentState').val());
+
+
+				if (currentHeight >= 0 && currentState === 1) {
+					currentState = 2;
+					$('#currentState').val(currentState);
+					$.ajax({
+						type: "GET",
+						url: "/Home/WorkFlow",
+						async: true,
+						processData: true,
+						cache: true,
+						success: function (result) {
+							$("#content").append(result);
+
+						}
+					});
+				}
+				else if (currentHeight >= 500 && currentState === 2) {
+					currentState = 3;
+					$('#currentState').val(currentState);
+						 $.ajax({
+						  type: "GET",
+							url: "/Home/ContactUsForm",
+						  async: true,
+							processData: true,
+							cache: true,
+							success: function (result) {
+							$("#content").append(result);
+							}
+						});
+
+				}
+				},200));
+
+		});
+	</script>
+}

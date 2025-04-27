@@ -1,0 +1,252 @@
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+ <!--<![endif]-->
+<head>
+	@RenderSection("Title", required: true)
+	<meta charset="utf-8">
+	<!--[if IE]>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<![endif]-->
+	@RenderSection("Description", required: true)
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	
+	@RenderSection("Keywords", required: true)
+	<!-- Stylesheets -->
+	<link rel="stylesheet" href="~/css/bootstrap.min.css">
+	<link rel="stylesheet" href="~/css/animations.css">
+	<link rel="stylesheet" href="~/css/font-awesome.css">
+	<link rel="stylesheet" href="~/css/main.css" class="color-switcher-link">
+	<link rel="stylesheet" href="~/css/shop.css" class="color-switcher-link">
+	<script src="~/js/vendor/modernizr-2.6.2.min.js"></script>
+	@RenderSection("CSS", required: false)
+
+	<!-- Scripts -->
+	<script src="~/js/vendor/modernizr-2.6.2.min.js"></script>
+
+	<!--[if lt IE 9]>
+		<script src="js/vendor/html5shiv.min.js"></script>
+		<script src="js/vendor/respond.min.js"></script>
+		<script src="js/vendor/jquery-1.12.4.min.js"></script>
+	<![endif]-->
+</head>
+
+
+<body>
+
+    <div class="preloader">
+        <div class="preloader_image"></div>
+    </div>
+
+	<!-- search modal -->
+	@RenderSection("SearchModal", required: false)
+
+
+	<!-- Unyson messages modal -->
+	@RenderSection("Popup", required: false)
+     
+    <div id="canvas">
+        <div id="box_wrapper">
+			<!--topline section visible only on small screens|-->
+			<div class="header_absolute s-pb-30">
+				<header class="page_header ds">
+					<div class="container-fluid">
+						<div class="row align-items-center">
+							<div class="col-xl-2 col-lg-3 col-11">
+								<a asp-controller="Home" asp-action="Index" class="logo text-center">
+									<img src="~/images/logo.png" alt="Smartify Logo">
+								</a>
+							</div>
+							<!--navbar-->
+							<div class="col-xl-8 col-lg-6 col-1 text-sm-center">
+								<!-- main nav start -->
+								<nav class="top-nav">
+									<ul class="nav sf-menu">
+										<!-- services -->
+										<li>
+											<a asp-controller="Home" asp-action="Services">@Localizer["Services"]</a>
+											<ul>
+															<li>
+																<a asp-controller="Home" asp-action="WebApplicationDevelopment">@Localizer["Web Applications"]</a>
+															</li>
+															<li>
+																<a asp-controller="Home" asp-action="MobileApplicationDevelopment">@Localizer["Mobile Applications"]</a>
+															</li>
+															<li>
+																<a asp-controller="Home" asp-action="DesktopApplicationDevelopment">@Localizer["Desktop Applications"]</a>
+															</li>
+															<li>
+																<a asp-controller="Home" asp-action="WebDesign">@Localizer["Web Design"]</a>
+															</li>
+															<li>
+																<a asp-controller="Home" asp-action="ECommerceSolutions">@Localizer["ECommerce"]</a>
+															</li>
+															<li>
+																<a asp-controller="Home" asp-action="BIandReporting">@Localizer["BIandReporting"]</a>
+															</li>
+
+											</ul>
+										</li>
+
+										<!-- products -->
+										<li>
+											<a asp-controller="Home" asp-action="Products">@Localizer["Products"]</a>
+										</li>
+										<!-- shop -->
+										@* <li>
+											<a asp-controller="Home" asp-action="Shop">@Localizer["Shop"]</a>
+											<ul>
+												<li>
+
+													<a asp-controller="Home" asp-action="Shop">@Localizer["Shop"]</a>
+												</li>
+												<!-- account -->
+												<li>
+													<a asp-controller="Home" asp-action="Account">@Localizer["Account"]</a>
+													<ul>
+														<li>
+															<a asp-controller="Home" asp-action="AccountOrders">@Localizer["Orders"]</a>
+														</li>
+														<li>
+															<a asp-controller="Home" asp-action="AccountDownloads">@Localizer["Downloads"]</a>
+														</li>
+														<li>
+															<a asp-controller="Home" asp-action="AccountDetails">@Localizer["AccountDetails"]</a>
+														</li>
+														<li>
+															<a asp-controller="Home" asp-action="Logout">@Localizer["Logout"]</a>
+														</li>
+													</ul>
+												</li>
+												<li>
+													<a asp-controller="Home" asp-action="Cart">@Localizer["Cart"]</a>
+												</li>
+												<li>
+													<a asp-controller="Home" asp-action="Checkout">@Localizer["Checkout"]</a>
+												</li>
+											</ul>
+										</li> *@
+										<!-- about -->
+										<li>
+											<a asp-controller="Home" asp-action="About">@Localizer["About"]</a>
+										
+										</li>
+									@* 	<!-- blog -->
+										<li>
+											<a asp-controller="Home" asp-action="Blog">Blog</a>
+										</li> *@
+									</ul>
+
+
+								</nav>
+								<!-- eof main nav -->
+							</div>
+							<!--phone-->
+							<div class="col-xl-2 col-lg-3 text-lg-left text-xl-right d-none d-lg-block">
+								<div class="header_phone">
+									<h6>
+										<span>+90</span>5555614547
+									</h6>
+								</div>
+							</div>
+							@* <div class="search-box">
+								<input type="text" name="search" placeholder="search keyword" class="search-text">
+								<a href="#" class="search-btn">
+									<i class="fa fa-search"></i>
+								</a>
+							</div> *@
+						</div>
+					</div>
+					<!-- header toggler -->
+					<span class="toggle_menu">
+						<span></span>
+					</span>
+				</header>
+			</div>
+			<span class="toggle_menu_side header-slide">
+				<span></span>
+			</span>
+            @RenderBody()
+
+			<footer class="page_footer corner-footer ds s-pt-30 s-pb-0 s-pb-lg-10 s-pb-xl-50 c-gutter-60 s-parallax">
+
+				<div class="container">
+					<div class="container">
+						<div class="row">
+							<div class="divider-20 d-none d-xl-block"></div>
+							<div class="col-md-12 mt-4 text-center animate" data-animation="fadeInUp">
+								<img class="margin-negative" src="~/images/footer_logo.png" alt="footer logo of Smartify">
+								<div class="widget widget_social_buttons">
+									<a href="http://www.facebook.com/#" class="fa fa-facebook color-icon" title="facebook"></a>
+									<a href="http://www.twitter.com/#" class="fa fa-twitter color-icon" title="twitter"></a>
+									<a href="http://www.plus.google.com/#" class="fa fa-google color-icon" title="google"></a>
+									<a href="http://www.youtube.com/#" class="fa fa-youtube-play color-icon" title="youtube-play"></a>
+									<a href="http://www.linkedin.com/#" class="fa fa-linkedin color-icon" title="linkedin"></a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</footer>
+			<section class="page_copyright light-copy cs s-py-20 s-py-lg-5 s-parallax copyright">
+				<div class="container">
+					<div class="row align-items-center">
+						<div class="divider-20 d-none d-lg-block"></div>
+						<div class="col-md-12 text-center">
+							<p>
+								&copy; Copyright
+								<span class="copyright_year">@DateTime.Now.Year</span> BİRİLERİ @Localizer["llc"] @Localizer["All Rights Reserved"]
+							</p>
+						</div>
+						<div class="divider-20 d-none d-lg-block"></div>
+					</div>
+				</div>
+			</section>
+
+        </div>
+		<!-- eof #box_wrapper -->
+    </div>
+
+	<!-- eof #canvas -->
+	<script src="~/js/compressed.js"></script>
+	<script src="~/js/main.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
+@section Scripts {
+	 <script>
+		 $(document).ready(function () {
+
+			 $(document).on("click", ".product-filter-button", function () {
+				 var id = $(this).data("id");
+				 $("#product-filter-content").html("");
+				 $.ajax({
+					 type: "POST",
+					 url: "/Home/ProductFilterByCategory",
+					 data: {
+						 id: id,
+						 pageNumber: pageNumber,
+						 totalItemDisplayPerPage: 10,
+					 },
+					 cache: false,
+					 success: function (data) {
+
+						 initializeOwlCarousel();
+						 $("#product-filter-content").html(data);
+
+						 initializeOwlCarousel();
+					 },
+					 error: function () {
+						 initializeOwlCarousel();
+
+					 }
+				 });
+			 });
+		 }
+	</script>
+}

@@ -1,0 +1,322 @@
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+
+
+@section Title {
+	<title>@Localizer["SmartifyYourBusiness"]</title>
+}
+@section Description {
+	<meta name="description" content="@Localizer["SmartifyDescription"]">
+}
+
+@section Keywords {
+	<meta name="keywords" content="@Localizer["IndexKeywords"]">
+}
+<div id="content">
+	<!--breadcrumb-->
+	<section class="page_title ls s-py-50 corner-title ls invise overflow-visible">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12 text-center">
+				<h1>About</h1>
+				<ol class="breadcrumb">
+					<li class="breadcrumb-item">
+						<a asp-controller="Home" asp-action="Index">@Localizer["MainPage"]</a>
+					</li>
+					<li class="breadcrumb-item">
+						<a asp-controller="Home" asp-action="About">@Localizer["About"]</a>
+					</li>
+				</ol>
+				<div class="divider-15 d-none d-xl-block"></div>
+			</div>
+		</div>
+	</div>
+</section>
+	<!--CEO Says-->
+	<section class="s-pt-30 s-pt-lg-50 ls about">
+		<div class="divider-60 d-none d-xl-block"></div>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-8 offset-md-2">
+					<div class="main-content text-center">
+						<h5>
+							@Localizer["CEO Says"]
+						</h5>
+						<i class="rt-icon2-user"></i>
+						<p>
+							Ansin Salin,
+							<span class="link-a">
+								<a href="#mm">@Localizer["Marketing Manager"]</a>
+							</span>
+						</p>
+
+						<div class="divider-10 d-none d-xl-block"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!--What We Do-->
+	<section class="s-pt-0  s-pb-30 s-pt-lg-30 s-pb-lg-75 ls about-icon teaser-contact-icon">
+		<div class="divider-10 d-none d-xl-block"></div>
+		<div class="container">
+			<div class="row c-mt-50 c-mt-lg-0">
+				<div class="col-lg-4 text-center call-icon">
+					<div class="border-icon">
+						<div class="teaser-icon">
+							<img src="~/images/icon1_about.png" alt="about">
+						</div>
+					</div>
+					<h6>
+						@Localizer["Who We Are"]
+					</h6>
+					<div class="icon-content">
+						<p>
+							@Localizer["Who We Are P"]
+						</p>
+					</div>
+				</div>
+				<div class="col-lg-4 text-center write-icon">
+					<div class="divider-30 d-none d-xl-block"></div>
+					<div class="border-icon">
+						<div class="teaser-icon">
+							<img src="~/images/icon2_about.png" alt="about">
+						</div>
+					</div>
+					<div class="icon-content">
+						<h6>
+							@Localizer["What We Do"]
+						</h6>
+						<p>
+							@Localizer["What We Do P"]
+						</p>
+					</div>
+				</div>
+				<div class="col-lg-4 text-center visit-icon">
+					<div class="border-icon">
+						<div class="teaser-icon">
+							<img src="~/images/icon3_about.png" alt="about">
+						</div>
+					</div>
+					<div class="icon-content">
+						<h6>
+							@Localizer["Why We Do It"]
+						</h6>
+						<p>
+							@Localizer["Why We Do It P"]
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</div>
+<input type="hidden" value="1" id="currentState" />
+@section Scripts {
+	<script>
+		$(document).ready(function () {
+
+			
+
+					 function debounce(func, wait) {
+				  let timeout;
+					 return function () {
+							const context = this, args = arguments;
+						clearTimeout(timeout);
+							timeout = setTimeout(() => func.apply(context, args), wait);
+						};
+					   }
+
+
+					$(window).scroll(debounce(function () {
+					var currentHeight = $(window).scrollTop();
+						var currentState = parseInt($('#currentState').val());
+
+
+						   if (currentHeight >= 0 && currentState === 1) {
+							   currentState = 2;
+							   $('#currentState').val(currentState);
+								   $.ajax({
+									   type: "GET",
+									   url: "/Home/Team",
+									   async: true,
+									   processData: true,
+									   cache: true,
+									   success: function (result) {
+											  $("#content").append(result);
+
+												initializeSlider();
+										  }
+								   });
+							}
+						
+					
+					else if (currentHeight >= 30 && currentState === 2) {
+						currentState = 3;
+						$('#currentState').val(currentState);
+							$.ajax({
+								type: "GET",
+								url: "/Home/ContactUsCallUs",
+								async: true,
+								processData: true,
+								cache: true,
+								success: function (result) {
+									$("#content").append(result);
+								}
+							});
+
+					}
+					else if (currentHeight >= 60 && currentState === 3) {
+						currentState = 4;
+						$('#currentState').val(currentState);
+							$.ajax({
+								type: "GET",
+								url: "/Home/ContactUsForm",
+								async: true,
+								processData: true,
+								cache: true,
+								success: function (result) {
+									$("#content").append(result);
+								}
+							});
+
+					}
+				},200));
+
+		});
+
+		function initializeOwlCarousel() {
+			$('.owl-carousel').each(function () {
+				var $carousel = $(this);
+
+				// Check if already initialized
+				if ($carousel.hasClass('owl-loaded')) {
+					return; // Skip reinitialization
+				}
+
+				var data = $carousel.data();
+
+				var loop = data.loop || false,
+					margin = (data.margin || data.margin === 0) ? data.margin : 30,
+					nav = data.nav || false,
+					navPrev = data.navPrev || '<i class="fa fa-angle-left"></i>',
+					navNext = data.navNext || '<i class="fa fa-angle-right"></i>',
+					dots = data.dots || false,
+					themeClass = data.themeclass || 'owl-theme',
+					center = data.center || false,
+					items = data.items || 4,
+					autoplay = data.autoplay || false,
+					responsiveXs = data.responsiveXs || 1,
+					responsiveSm = data.responsiveSm || 2,
+					responsiveMd = data.responsiveMd || 3,
+					responsiveLg = data.responsiveLg || 4,
+					draggable = (data.draggable === false) ? false : true;
+
+				$carousel.owlCarousel({
+					loop: loop,
+					margin: margin,
+					nav: nav,
+					autoplay: autoplay,
+					dots: dots,
+					center: center,
+					navText: [navPrev, navNext],
+					mouseDrag: draggable,
+					touchDrag: draggable,
+					items: items,
+					responsive: {
+						0: { items: responsiveXs },
+						767: { items: responsiveSm },
+						992: { items: responsiveMd },
+						1200: { items: responsiveLg }
+					},
+				}).addClass(themeClass);
+
+				// Mark carousel as initialized
+				$carousel.addClass('owl-loaded');
+
+			});
+		}
+		function initializeSlider() {
+			if ($().flexslider) {
+				//Team Slider Shortcode
+				jQuery('.flexslider.team-slider').flexslider({
+					slideshow: false,
+					directionNav: false,
+					manualControls: ".flex-control-nav-1 li",
+				});
+
+				var $introSlider = $(".page_slider .flexslider");
+				$introSlider.each(function (index) {
+					var $currentSlider = $(this);
+					var data = $currentSlider.data();
+					var nav = (data.nav !== 'undefined') ? data.nav : true;
+					var dots = (data.dots !== 'undefined') ? data.dots : true;
+					var speed = (data.speed !== 'undefined') ? data.speed : 7000;
+
+					$currentSlider.flexslider({
+						animation: "fade",
+						pauseOnHover: true,
+						useCSS: true,
+						controlNav: dots,
+						directionNav: nav,
+						prevText: "",
+						nextText: "",
+						smoothHeight: false,
+						slideshowSpeed: speed,
+						animationSpeed: 600,
+						start: function (slider) {
+							slider.find('.intro_layers').children().css({ 'visibility': 'hidden' });
+							slider.find('.flex-active-slide .intro_layers').children().each(function (index) {
+								var self = $(this);
+								var animationClass = !self.data('animation') ? 'fadeInDown' : self.data('animation');
+								setTimeout(function () {
+									self.addClass("animated " + animationClass);
+								}, index * 500);
+							});
+						},
+						after: function (slider) {
+							slider.find('.flex-active-slide .intro_layers').children().each(function (index) {
+								var self = $(this);
+								var animationClass = !self.data('animation') ? 'fadeInDown' : self.data('animation');
+								setTimeout(function () {
+									self.addClass("animated " + animationClass);
+								}, index * 500);
+							});
+						},
+						end: function (slider) {
+							slider.find('.intro_layers').children().each(function () {
+								var self = $(this);
+								var animationClass = !self.data('animation') ? 'fadeInDown' : self.data('animation');
+								self.removeClass('animated ' + animationClass).css({ 'visibility': 'hidden' });
+								// $(this).attr('class', '');
+							});
+						},
+
+					})
+					//wrapping nav with container - uncomment if need
+					// .find('.flex-control-nav')
+					// .wrap('<div class="container nav-container"/>')
+				}); //.page_slider flex slider
+
+				$(".flexslider").each(function (index) {
+					var $currentSlider = $(this);
+					//exit if intro slider already activated
+					if ($currentSlider.find('.flex-active-slide').length) {
+						return;
+					}
+					$currentSlider.flexslider({
+						animation: "fade",
+						useCSS: true,
+						controlNav: true,
+						directionNav: false,
+						prevText: "",
+						nextText: "",
+						smoothHeight: false,
+						slideshowSpeed: 5000,
+						animationSpeed: 800,
+					})
+				});
+			}
+		 }
+	</script>
+}

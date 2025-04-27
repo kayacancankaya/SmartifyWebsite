@@ -1,0 +1,59 @@
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+
+<section class="s-pt-50 s-pb-100 s-pt-lg-30 s-pb-lg-75 ls ms teaser-contact-icon main-icon s-parallax" id="contact">
+	<div class="corner corner-inverse"></div>
+	<div class="text-center img-wrap col-md-12">
+		<img src="img/dark_line_short.png" alt="">
+	</div>
+	<div class="container">
+		<div class="divider-10 d-none d-xl-block"></div>
+		<div class="row c-mb-50 c-mb-lg-0">
+			<div class="col-lg-6 text-center">
+				<div class="border-icon">
+					<div class="teaser-icon">
+						<img src="~/images/icon1.png" alt="call us icon">
+					</div>
+				</div>
+				<h6>
+					@Localizer["Call Us"]
+				</h6>
+				<p>
+					<strong>@Localizer["Support"]:</strong> +90 555 561 45 47
+				</p>
+			</div>
+			<div class="col-lg-6 text-center">
+				<div class="border-icon">
+					<div class="teaser-icon">
+						<img src="~/images/icon3.png" alt="">
+					</div>
+				</div>
+				<h6>
+					@Localizer["Write Us"]
+				</h6>
+				<p>
+					info@smartifyyb.com
+				</p>
+			</div>
+			@* <div class="col-lg-4 text-center">
+			<div class="border-icon">
+			<div class="teaser-icon">
+			<img src="images/icon2.png" alt="">
+			</div>
+			</div>
+			<h6>
+			Visit Us
+			</h6>
+			<p>
+			2231 Sycamore Lake Road
+			<br> Green Bay, WI 54304
+			</p>
+			</div> *@
+		</div>
+		<div class="divider-30 d-none d-lg-block"></div>
+		<div class="text-center img-wrap col-md-12 layout-2">
+			<img src="~/img/dark_line_short.png" alt="bg image">
+		</div>
+	</div>
+	<div class="divider-10"></div>
+</section>

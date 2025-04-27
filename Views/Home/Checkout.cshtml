@@ -1,0 +1,289 @@
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+@section Title {
+	<title>@Localizer["SmartifyYourBusiness"]</title>
+}
+@section Description {
+	<meta name="description" content="@Localizer["SmartifyDescription"]">
+}
+
+@section Keywords {
+	<meta name="keywords" content="@Localizer["IndexKeywords"]">
+}
+			<section class="page_title ls s-py-50 corner-title ls invise overflow-visible">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-12 text-center">
+							<h1>Сheckout</h1>
+							<ol class="breadcrumb">
+								<li class="breadcrumb-item">
+									<a href="./">Home</a>
+								</li>
+								<li class="breadcrumb-item">
+									<a href="#">Shop</a>
+								</li>
+								<li class="breadcrumb-item active">
+									Сheckout
+								</li>
+							</ol>
+							<div class="divider-15 d-none d-xl-block"></div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+
+			<section class="ls s-pt-50 s-pb-100 checkout">
+				<div class="container">
+					<div class="row">
+
+						<div class="d-none d-lg-block divider-65"></div>
+
+						<main class="col-lg-12">
+							<div class="woocommerce-info color-1">
+								Returning customer?
+								<a href="#" class="showlogin fw-400">Click here to login</a>
+							</div>
+
+							<form class="woocomerce-form woocommerce-form-login login" method="post" style="">
+
+
+								<p>If you have shopped with us before, please enter your details in the boxes below. If you are a new customer, please proceed to the Billing &amp; Shipping section.</p>
+
+								<p class="form-row form-row-first">
+									<label for="username">
+										Username or email
+										<span class="required">*</span>
+									</label>
+									<input type="text" class="input-text" name="username" id="username">
+								</p>
+								<p class="form-row form-row-last">
+									<label for="password">
+										Password
+										<span class="required">*</span>
+									</label>
+									<input class="input-text" type="password" name="password" id="password">
+								</p>
+								<div class="clear">
+								</div>
+
+
+								<p class="form-row">
+
+									<input type="submit" class="button" name="login" value="Login">
+									<label>
+										<input name="rememberme" type="checkbox" id="rememberme" value="forever">
+										<span>Remember me</span>
+									</label>
+								</p>
+								<p class="lost_password">
+									<a href="shop-account-password-reset.html">Lost your password?</a>
+								</p>
+
+								<div class="clear">
+								</div>
+
+
+							</form>
+
+							<div class="woocommerce-info color-1">
+								Have a coupon?
+								<a href="#" class="showcoupon fw-400">Click here to enter your code</a>
+							</div>
+
+							<form class="checkout_coupon" method="post">
+
+								<p class="form-row form-row-first">
+									<input type="text" name="coupon_code" class="input-text" placeholder="Coupon code" id="coupon_code" value="">
+								</p>
+
+								<p class="form-row form-row-last">
+									<input type="submit" class="button" name="apply_coupon" value="Apply coupon">
+								</p>
+
+								<div class="clear">
+								</div>
+							</form>
+
+							<form name="checkout" method="post" class="checkout woocommerce-checkout" action="/" enctype="multipart/form-data" novalidate="novalidate">
+
+
+								<div class="woocommerce-NoticeGroup woocommerce-NoticeGroup-checkout">
+									<ul class="woocommerce-error list1">
+										<li>Billing First name is a required field.</li>
+										<li>Billing Last name is a required field.</li>
+										<li>Please enter a valid postcode / ZIP.</li>
+									</ul>
+								</div>
+
+								<div class="divider-75 d-none d-xl-block"></div>
+								<div class="row c-gutter-60" id="customer_details">
+									<div class="col-12 col-md-8">
+										<div class="woocommerce-billing-fields">
+											<h6>Billing Details</h6>
+											<div class="woocommerce-billing-fields__field-wrapper">
+												<p class="form-row form-row-first validate-required woocommerce-invalid woocommerce-invalid-required-field" id="billing_first_name_field" data-priority="10">
+													<label for="billing_first_name" class="">
+
+													</label>
+
+													<input type="text" class="input-text " name="billing_first_name" id="billing_first_name" placeholder=" First name " value="" autocomplete="given-name" autofocus="autofocus">
+												</p>
+												<p class="form-row form-row-last validate-required" id="billing_last_name_field" data-priority="20">
+													<label for="billing_last_name" class="">
+													</label>
+													<input type="text" class="input-text " name="billing_last_name" id="billing_last_name" placeholder="Last name " value="" autocomplete="family-name">
+												</p>
+												<p class="form-row form-row-wide" id="billing_company_field" data-priority="30">
+													<label for="billing_company" class=""></label>
+													<input type="text" class="input-text " name="billing_company" id="billing_company" placeholder="Company name" value="" autocomplete="organization">
+												</p>
+												<p class="form-row form-row-wide address-field validate-required" id="billing_address_1_field" data-priority="50">
+													<label for="billing_address_1" class="">
+													</label>
+													<input type="text" class="input-text " name="billing_address_1" id="billing_address_1" placeholder="Street address" value="" autocomplete="address-line1">
+												</p>
+												<p class="form-row form-row-wide address-field" id="billing_address_2_field" data-priority="60">
+													<input type="text" class="input-text " name="billing_address_2" id="billing_address_2" placeholder="Apartment, suite, unit etc. (optional)" value="" autocomplete="address-line2">
+												</p>
+												<p class="form-row form-row-wide address-field validate-required" id="billing_city_field" data-priority="70" data-o_class="form-row form-row-wide address-field validate-required">
+													<label for="billing_city" class="">
+													</label>
+													<input type="text" class="input-text " name="billing_city" id="billing_city" placeholder="Town / City" value="" autocomplete="address-level2">
+												</p>
+												<p class="form-row form-row-wide address-field validate-state validate-required" id="billing_state_field" data-priority="80" data-o_class="form-row form-row-wide address-field validate-required validate-state">
+													<label for="billing_state" class="">
+													</label>
+													<input type="text" class="input-text " value="" placeholder="State / County " name="billing_state" id="billing_state" autocomplete="address-level1">
+												</p>
+												<p class="form-row form-row-wide address-field validate-postcode validate-required" id="billing_postcode_field" data-priority="90" data-o_class="form-row form-row-wide address-field validate-required validate-postcode">
+													<label for="billing_postcode" class="">
+													</label>
+													<input type="text" class="input-text " name="billing_postcode" id="billing_postcode" placeholder="Postcode / ZIP" value="" autocomplete="postal-code">
+												</p>
+												<p class="form-row form-row-first " id="billing_phone_field" data-priority="100">
+													<label for="billing_phone" class="">
+													</label>
+													<input type="text" class="input-text " name="billing_phone" id="billing_phone" placeholder="Phone" value="" autocomplete="tel">
+												</p>
+												<p class="form-row form-row-last " id="billing_email_field" data-priority="110">
+													<label for="billing_email" class="">
+													</label>
+													<input type="text" class="input-text " name="billing_email" id="billing_email" placeholder="Email address " value="">
+												</p>
+											</div>
+
+										</div>
+
+									</div>
+									<div class="col-12 col-md-4">
+										<h6 id="order_review_heading">Your Order</h6>
+
+
+										<div id="order_review" class="woocommerce-checkout-review-order">
+											<table class="shop_table woocommerce-checkout-review-order-table">
+												<tbody>
+													<tr class="cart_item">
+														<td class="product-name">
+															Premium Quality&nbsp;
+															<strong class="product-quantity">× 1</strong>
+														</td>
+														<td class="product-total">
+															<span class="woocommerce-Price-amount amount">
+																<span class="woocommerce-Price-currencySymbol">$</span>12.00
+															</span>
+														</td>
+													</tr>
+													<tr class="cart_item">
+														<td class="product-name">
+															Woo Ninja&nbsp;
+															<strong class="product-quantity">× 1</strong>
+														</td>
+														<td class="product-total">
+															<span class="woocommerce-Price-amount amount">
+																<span class="woocommerce-Price-currencySymbol">$</span>15.00
+															</span>
+														</td>
+													</tr>
+													<tr class="cart_item">
+														<td class="product-name">
+															Woo Album #3&nbsp;
+															<strong class="product-quantity">× 2</strong>
+														</td>
+														<td class="product-total">
+															<span class="woocommerce-Price-amount amount">
+																<span class="woocommerce-Price-currencySymbol">$</span>18.00
+															</span>
+														</td>
+													</tr>
+												</tbody>
+												<tfoot>
+
+													<tr class="cart-subtotal border-top border-bottom">
+														<th>Subtotal</th>
+														<td>
+															<span class="woocommerce-Price-amount amount own">
+																<span class="woocommerce-Price-currencySymbol ">$</span>45.00
+															</span>
+														</td>
+													</tr>
+
+
+													<tr class="order-total border-bottom">
+														<th>Total</th>
+														<td>
+															<strong>
+																<span class="woocommerce-Price-amount amount own">
+																	<span class="woocommerce-Price-currencySymbol">$</span>45.00
+																</span>
+															</strong>
+														</td>
+													</tr>
+
+
+												</tfoot>
+											</table>
+
+											<div id="payment" class="woocommerce-checkout-payment">
+												<ul class="wc_payment_methods payment_methods methods">
+													<li class="wc_payment_method payment_method_cheque">
+														<input id="payment_method_cheque" type="radio" class="input-radio" name="payment_method" value="cheque" checked="checked" data-order_button_text="">
+
+														<label for="payment_method_cheque">
+															Check payments
+														</label>
+														<div class="payment_box payment_method_cheque">
+															<p>
+																Please send a check to Store Name, Store Street, Store Town, Store State / County, Store Postcode.
+															</p>
+														</div>
+													</li>
+													<li class="wc_payment_method payment_method_cod">
+														<input id="payment_method_cod" type="radio" class="input-radio" name="payment_method" value="cod" data-order_button_text="">
+
+														<label for="payment_method_cod">
+															Cash on delivery
+														</label>
+													</li>
+												</ul>
+												<div class="form-row place-order">
+													<noscript>
+														Since your browser does not support JavaScript, or it is disabled, please ensure you click the &lt;em&gt;Update Totals&lt;/em&gt; button before placing your order. You may be charged more than the amount stated above if you fail to do so. &lt;br/&gt;&lt;input
+														type="submit" class="button alt" name="woocommerce_checkout_update_totals" value="Update totals" /&gt;
+													</noscript>
+													<input type="submit" class="button alt" name="woocommerce_checkout_place_order" id="place_order" value="Place order" data-value="Place order">
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</form>
+
+
+						</main>
+
+						<div class="d-none d-lg-block divider-80"></div>
+					</div>
+
+				</div>
+			</section>

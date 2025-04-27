@@ -1,0 +1,88 @@
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@using SmartifyWebsite.Data
+@model IEnumerable<Product>
+@inject IViewLocalizer Localizer;
+@{
+	var productName = string.Empty;
+	var description = string.Empty;
+	var categoryName = string.Empty;
+	var currentculture = ViewData["CurrentCulture"].ToString();
+	var totalProducts = Convert.ToInt32(ViewData["TotalProducts"]);
+	int totalDisplayed = Model.Count();
+	string rootPath = ViewData["RootPath"].ToString();
+	string photoPathBase = string.Format("~/images/gallery/{0}/", currentculture);
+	string photoPath = string.Empty;
+	string filePath = string.Empty;
+}
+<!--Products-->
+@foreach (var item in Model)
+{
+	switch (currentculture)
+	{
+		case "en-US":
+			description = item.Description_EN;
+			productName = item.Name_EN;
+			categoryName = item.Category.CategoryName_EN;
+			break;
+		case "tr-TR":
+			description = item.Description_TR;
+			productName = item.Name_TR;
+			categoryName = item.Category.CategoryName_TR;
+			break;
+		case "es-ES":
+			description = item.Description_ES;
+			productName = item.Name_ES;
+			categoryName = item.Category.CategoryName_ES;
+			break;
+		default:
+			description = item.Description_EN;
+			productName = item.Name_EN;
+			categoryName = item.Category.CategoryName_EN;
+			break;
+	}
+	<div class="col-lg-4 col-md-6 col-sm-12">
+
+		<div class="vertical-item text-center">
+			<div class="item-media">
+				@{
+					filePath = String.Format("{0}/images/gallery/{1}/{2}/{3}.png", rootPath, currentculture, item.ProductCode, 1);
+					photoPath = string.Format("{0}{1}/{2}.png", photoPathBase, item.ProductCode.Substring(0, 6), 1);
+
+					if (File.Exists(filePath))
+					{
+						<img src="@Url.Content(photoPath)" alt="product photo">
+					}
+					else
+					{
+						<img src="~/images/products/defaultProductImage.jpg" alt="product photo">
+					}
+				}
+			</div>
+			<div class="item-content">
+				<h6>
+					<a asp-controller="Home" asp-action="Product" asp-route-productCode="@item.ProductCode">@productName</a>
+				</h6>
+				<div class="small-text link-a">
+					<a asp-controller="Home" asp-action="Category" asp-route-categoryID="@item.CategoryID">@categoryName</a>
+				</div>
+				@if (description.Length > 100)
+				{
+
+					<p class="brief-content">@String.Format("{0}...", description.Substring(0, 96))</p>
+					<p class="full-content" style="display:none">@description</p>
+					<btn n class="btn btn-maincolor toggle-read button price-filter">@Localizer["Read More"]</btn>
+				}
+				else
+				{
+					<p style="display:none">@description</p>
+				}
+
+			</div>
+		</div>
+
+	</div>
+}
+
+<input type="hidden" id="TotalProductsFiltered" value="@ViewData["TotalProductsFiltered"]" />
+
+<input type="hidden" id="TotalResult" value="@ViewData["TotalDisplayed"]" />

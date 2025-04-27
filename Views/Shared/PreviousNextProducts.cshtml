@@ -1,0 +1,123 @@
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@using SmartifyWebsite.Data
+@model IEnumerable<Product>
+@inject IViewLocalizer Localizer;
+@{
+	var currentculture = ViewData["CurrentCulture"].ToString();
+	var currentID = Convert.ToInt32(ViewData["CurrentID"]);
+	string previousProductCode = string.Empty;
+	int previousID = 0;
+	string previousProductName = string.Empty;
+	string nextProductCode = string.Empty;
+	int nextID = 0;
+	string nextProductName = string.Empty;
+	string filePath = string.Empty;
+	foreach(Product item in Model)
+	{
+		if (item.Id <currentID)
+		{
+			previousProductCode = item.ProductCode;
+			previousID = item.Id;
+			switch (currentculture)
+			{
+				case "en-US":
+					previousProductName = item.Name_EN;
+					break;
+				case "tr-TR":
+					previousProductName = item.Name_TR;
+					break;
+				case "es-ES":
+					previousProductName = item.Name_ES;
+					break;
+				default:
+					previousProductName = item.Name_EN;
+					break;
+			}
+
+		}
+		else if (item.Id > currentID)
+		{
+			nextProductCode = item.ProductCode;
+			nextID = item.Id;
+			switch (currentculture)
+			{
+				case "en-US":
+					nextProductName = item.Name_EN;
+					break;
+				case "tr-TR":
+					nextProductName = item.Name_TR;
+					break;
+				case "es-ES":
+					nextProductName = item.Name_ES;
+					break;
+				default:
+					nextProductName = item.Name_EN;
+					break;
+			}
+		}
+		else
+			break;
+	}
+}
+
+<nav class="navigation post-nav" role="navigation">
+	<h2 class="screen-reader-text">@Localizer["Products"]</h2>
+	<div class="nav-links">
+		@if(!string.IsNullOrEmpty(previousProductCode))
+		{
+			<div class="nav-previous cover-image s-overlay ds">
+				<div class="post-nav-image">
+					@{
+						filePath = String.Format("~/images/gallery/{0}_{1}.jpg", previousProductCode, 1);
+						if (File.Exists(filePath))
+						{
+							<img src="@filePath" alt="product photo">
+						}
+						else
+						{
+							<img src="images/products/defaultProductImage.jpg" />
+						}
+					}
+				</div>
+				<div class="post-nav-text-wrap">
+					<span class="screen-reader-text">@Localizer["Previous Product"]</span>
+					<span aria-hidden="true" class="nav-subtitle color-main">@Localizer["Previous"]</span>
+
+					<p class="nav-title">
+						productName
+					</p>
+				</div>
+				<a asp-controller="Home" asp-action="Product" asp-route-productCode="previousProductCode"></a>
+			</div>
+			
+		}
+		@if(!string.IsNullOrEmpty(nextProductCode))
+		{
+			<div class="nav-next next cover-image s-overlay ds">
+			<div class="post-nav-image">
+				@{
+					filePath = String.Format("~/images/gallery/{0}_{1}.jpg", nextProductCode, 1);
+					if (File.Exists(filePath))
+					{
+						<img src="@filePath" alt="product photo">
+					}
+					else
+					{
+						<img src="images/products/defaultProductImage.jpg" />
+					}
+				}
+			</div>
+
+			<div class="post-nav-text-wrap">
+				<span class="screen-reader-text">@Localizer["Next Product"]</span>
+				<span aria-hidden="true" class="nav-subtitle color-main">@Localizer["Next"]</span>
+
+				<p class="nav-title">
+					nextProductName
+				</p>
+			</div>
+			<a asp-controller="Home" asp-action="Product" asp-route-productCode="nextProductCode"></a>
+		</div>
+		}
+	</div>
+</nav>

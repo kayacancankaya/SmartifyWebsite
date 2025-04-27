@@ -1,0 +1,39 @@
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer;
+
+<!-- about -->
+<section class="s-pt-30 s-pt-lg-50 s-pt-xl-25 ls about-home" id="about">
+	<div class="divider-5 d-none d-xl-block"></div>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2">
+				<div class="main-content text-center">
+					<div class="img-wrap text-center">
+						<img src="img/vertical_line.png" alt="">
+						<div class="divider-35"></div>
+					</div>
+					<h5>
+						@Localizer["We are Smartify"]
+					</h5>
+					<p>
+						@Localizer["Smartify at"]
+					</p>
+					<div class="divider-30"></div>
+					<div class="img-wrap text-center">
+						<img src="img/vertical_line.png" alt="">
+					</div>
+					<div>
+						<div class="divider-40"></div>
+						<button type="button" class="btn btn-outline-maincolor" asp-controller="Home" asp-action="Projects">@Localizer["Our Folio"]</button>
+						<div class="divider-40"></div>
+					</div>
+					<div class="img-wrap text-center">
+						<img src="img/vertical_line.png" alt="line">
+					</div>
+					<div class="divider-10 d-none d-xl-block"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="divider-10 d-block d-sm-none"></div>
+</section>
