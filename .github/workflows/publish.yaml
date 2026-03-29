@@ -1,0 +1,60 @@
+
+name: publish
+
+on:
+  # push:
+   # branches: [ "master" ]
+    
+  workflow_dispatch:
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: 8.0.x
+    - name: Restore dependencies
+      run: dotnet restore
+    - name: Build
+      run: dotnet build --no-restore
+    - name: Release
+      run: dotnet publish -c Release -r linux-x64 --self-contained false -p:PublishReadyToRun=true -o ./publish
+      
+    - name: Stop app on server
+      uses: appleboy/ssh-action@v1
+      with:
+        host: ${{ secrets.VM_HOST }}
+        username: ${{ secrets.VM_USER }}
+        password: ${{ secrets.VM_PASSWORD }}
+        port: ${{ secrets.VM_PORT }}
+        script: |
+          cd /home/smartify/apps/smartifywebsite
+          sudo systemctl stop smartify.service
+      
+    - name: Copy published files to server
+      uses: appleboy/scp-action@v0.1.5
+      with:
+        host: ${{ secrets.VM_HOST }}
+        username: ${{ secrets.VM_USER }}
+        password: ${{ secrets.VM_PASSWORD }}
+        port: ${{ secrets.VM_PORT }}
+        source: "publish/*"
+        target: "/home/smartify/apps/smartifywebsite"
+        overwrite: true
+
+    - name: Run app on server
+      uses: appleboy/ssh-action@v1
+      with:
+        host: ${{ secrets.VM_HOST }}
+        username: ${{ secrets.VM_USER }}
+        password: ${{ secrets.VM_PASSWORD }}
+        port: ${{ secrets.VM_PORT }}
+        script: |
+          cd /home/smartify/apps/smartifywebsite
+          chmod +x Smartify
+          sudo systemctl daemon-reload
+          sudo systemctl start birileri.service
