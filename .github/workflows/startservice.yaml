@@ -1,0 +1,21 @@
+name: start service
+
+on:    
+  workflow_dispatch:
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    
+    - name: Start app on server
+      uses: appleboy/ssh-action@v1
+      with:
+        host: ${{ secrets.VM_HOST }}
+        username: ${{ secrets.VM_USER }}
+        password: ${{ secrets.VM_PASSWORD }}
+        port: ${{ secrets.VM_PORT }}
+        script: |
+          cd /home/smartify/apps/smartifywebsite
+          sudo systemctl start smartify.service
