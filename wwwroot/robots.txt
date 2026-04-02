@@ -1,0 +1,27 @@
+User-agent: *
+Allow: /
+
+# Private / account pages
+Disallow: /Home/Account
+Disallow: /Home/AccountOrders
+Disallow: /Home/AccountDownloads
+Disallow: /Home/AccountDetails
+Disallow: /Home/Login
+Disallow: /Home/Logout
+Disallow: /Home/Cart
+Disallow: /Home/Checkout
+
+# Partial views (not standalone pages)
+Disallow: /Home/ServicesPartial
+Disallow: /Home/AboutSmartifyPartial
+Disallow: /Home/WorkFlow
+Disallow: /Home/Team
+Disallow: /Home/YourProject
+Disallow: /Home/ContactUsForm
+Disallow: /Home/ContactUsCallUs
+Disallow: /Home/ProductRelated
+
+# Error page
+Disallow: /Home/Error
+
+Sitemap: https://www.smartifie.com/sitemap.xml
