@@ -57,4 +57,4 @@ jobs:
           cd /home/smartify/apps/smartifywebsite
           chmod +x Smartify
           sudo systemctl daemon-reload
-          sudo systemctl start birileri.service
+          sudo systemctl start smartify.service

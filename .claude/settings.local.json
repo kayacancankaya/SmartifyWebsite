@@ -2,7 +2,11 @@
   "permissions": {
     "allow": [
       "WebSearch",
-      "WebFetch(domain:entrepreneurloop.com)"
+      "WebFetch(domain:entrepreneurloop.com)",
+      "Bash(find c:UsersAdminsourcereposSmartifyWebsite -maxdepth 2 -type f -name *.csproj -o -name *.sln -o -name appsettings* -o -name Program.cs -o -name Startup.cs)",
+      "Bash(find c:UsersAdminsourcereposSmartifyWebsiteViews -type f -name *.cshtml)",
+      "Bash(grep -r \"using\\\\|namespace\" c:UsersAdminsourcereposSmartifyWebsite --include=*.cs)",
+      "Bash(grep -r \"HttpClient\\\\|Http\\\\|API\" c:UsersAdminsourcereposSmartifyWebsite --include=*.cs)"
     ]
   }
 }

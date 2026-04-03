@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(grep -r \"smtp\\\\|email\\\\|mail\\\\|Hostinger\\\\|password\\\\|key\\\\|token\" c:UsersAdminsourcereposSmartifyWebsite --include=*.cs --include=*.json)"
+    ]
+  }
+}
