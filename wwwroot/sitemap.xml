@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <!-- Home -->
+  <url>
+    <loc>https://www.smartifie.com/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.smartifie.com/?culture=en-US"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.smartifie.com/?culture=tr-TR"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.smartifie.com/?culture=es-ES"/>
+  </url>
+
+  <!-- Products -->
+  <url>
+    <loc>https://www.smartifie.com/Home/Products</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.smartifie.com/Home/Products?culture=en-US"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.smartifie.com/Home/Products?culture=tr-TR"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.smartifie.com/Home/Products?culture=es-ES"/>
+  </url>
+
+  <!-- Services Overview -->
+  <url>
+    <loc>https://www.smartifie.com/Home/Services</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.smartifie.com/Home/Services?culture=en-US"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.smartifie.com/Home/Services?culture=tr-TR"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.smartifie.com/Home/Services?culture=es-ES"/>
+  </url>
+
+  <!-- Service Pages -->
+  <url>
+    <loc>https://www.smartifie.com/Home/WebApplicationDevelopment</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.smartifie.com/Home/WebApplicationDevelopment?culture=en-US"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.smartifie.com/Home/WebApplicationDevelopment?culture=tr-TR"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.smartifie.com/Home/WebApplicationDevelopment?culture=es-ES"/>
+  </url>
+
+  <url>
+    <loc>https://www.smartifie.com/Home/MobileApplicationDevelopment</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.smartifie.com/Home/MobileApplicationDevelopment?culture=en-US"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.smartifie.com/Home/MobileApplicationDevelopment?culture=tr-TR"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.smartifie.com/Home/MobileApplicationDevelopment?culture=es-ES"/>
+  </url>
+
+  <url>
+    <loc>https://www.smartifie.com/Home/DesktopApplicationDevelopment</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.smartifie.com/Home/DesktopApplicationDevelopment?culture=en-US"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.smartifie.com/Home/DesktopApplicationDevelopment?culture=tr-TR"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.smartifie.com/Home/DesktopApplicationDevelopment?culture=es-ES"/>
+  </url>
+
+  <url>
+    <loc>https://www.smartifie.com/Home/WebDesign</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.smartifie.com/Home/WebDesign?culture=en-US"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.smartifie.com/Home/WebDesign?culture=tr-TR"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.smartifie.com/Home/WebDesign?culture=es-ES"/>
+  </url>
+
+  <url>
+    <loc>https://www.smartifie.com/Home/ECommerceSolutions</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.smartifie.com/Home/ECommerceSolutions?culture=en-US"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.smartifie.com/Home/ECommerceSolutions?culture=tr-TR"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.smartifie.com/Home/ECommerceSolutions?culture=es-ES"/>
+  </url>
+
+  <url>
+    <loc>https://www.smartifie.com/Home/BIandReporting</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.smartifie.com/Home/BIandReporting?culture=en-US"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.smartifie.com/Home/BIandReporting?culture=tr-TR"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.smartifie.com/Home/BIandReporting?culture=es-ES"/>
+  </url>
+
+  <!-- About -->
+  <url>
+    <loc>https://www.smartifie.com/Home/About</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.smartifie.com/Home/About?culture=en-US"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.smartifie.com/Home/About?culture=tr-TR"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.smartifie.com/Home/About?culture=es-ES"/>
+  </url>
+
+  <!-- Projects / Portfolio -->
+  <url>
+    <loc>https://www.smartifie.com/Home/Projects</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.smartifie.com/Home/Projects?culture=en-US"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.smartifie.com/Home/Projects?culture=tr-TR"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.smartifie.com/Home/Projects?culture=es-ES"/>
+  </url>
+
+  <!-- Blog -->
+  <url>
+    <loc>https://www.smartifie.com/Home/Blog</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.smartifie.com/Home/Blog?culture=en-US"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.smartifie.com/Home/Blog?culture=tr-TR"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.smartifie.com/Home/Blog?culture=es-ES"/>
+  </url>
+
+  <!-- Contact -->
+  <url>
+    <loc>https://www.smartifie.com/Home/ContactUs</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.smartifie.com/Home/ContactUs?culture=en-US"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.smartifie.com/Home/ContactUs?culture=tr-TR"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.smartifie.com/Home/ContactUs?culture=es-ES"/>
+  </url>
+
+</urlset>
