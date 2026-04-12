@@ -1,7 +1,15 @@
 {
   "permissions": {
     "allow": [
-      "Bash(grep -r \"smtp\\\\|email\\\\|mail\\\\|Hostinger\\\\|password\\\\|key\\\\|token\" c:UsersAdminsourcereposSmartifyWebsite --include=*.cs --include=*.json)"
+      "Bash(grep -r \"smtp\\\\|email\\\\|mail\\\\|Hostinger\\\\|password\\\\|key\\\\|token\" c:UsersAdminsourcereposSmartifyWebsite --include=*.cs --include=*.json)",
+      "Bash(dotnet restore:*)",
+      "Bash(dotnet package:*)",
+      "Bash(dotnet add:*)",
+      "Bash(dotnet list:*)",
+      "WebFetch(domain:api.nuget.org)",
+      "WebFetch(domain:github.com)",
+      "Bash(dotnet publish:*)",
+      "Bash(dotnet --list-sdks)"
     ]
   }
 }
