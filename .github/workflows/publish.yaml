@@ -55,6 +55,6 @@ jobs:
         port: ${{ secrets.VM_PORT }}
         script: |
           cd /home/smartify/apps/smartifywebsite/publish
-          chmod +x Smartify
+          chmod +x SmartifyWebsite
           sudo systemctl daemon-reload
           sudo systemctl start smartify.service
